@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BloptoApplication {
 
 	public static void main(String[] args) {
+		//test
 		SpringApplication.run(BloptoApplication.class, args);
 	}
 }
