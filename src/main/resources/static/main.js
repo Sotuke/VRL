@@ -37,8 +37,9 @@ window.onload = function() {
         var text = postBox.value.trim();
         if (text.length > 0 && text.length < 140) {
             var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "/", true);
-            xhttp.send("ee");
+            xhttp.open("POST", "/", true);
+            //xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send();
             /* AJAX varsti */
             /*posts.innerHTML = `
                     <article class="post">

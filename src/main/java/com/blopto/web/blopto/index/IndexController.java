@@ -4,10 +4,7 @@ import com.blopto.web.blopto.service.ITweetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class IndexController {
@@ -17,7 +14,7 @@ public class IndexController {
 
     private static final String TEMPLATE_MAIN = "index";
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @GetMapping("/")
     public String index(
             @RequestParam(value="username", required=false, defaultValue="Username") String username,
             @RequestParam(value="handle", required=false, defaultValue="username") String handle,
@@ -25,15 +22,9 @@ public class IndexController {
     ) {
         model.addAttribute("username", username);
         model.addAttribute("handle", handle);
-        System.out.println("weee");
         return TEMPLATE_MAIN;
     }
-    @GetMapping("/sasa")
-    public String getSubscriptons(Model model) {
-        //model.addAttribute("subscriptions", tweetService.findAll());
-        System.out.println("weee");
-        return TEMPLATE_MAIN;
-    }
+
 
 }
 

@@ -7,4 +7,5 @@ import java.util.List;
 public interface ITweetService {
 
     public List<Tweet> findAll();
+    public Tweet save(Tweet tweet);
 }

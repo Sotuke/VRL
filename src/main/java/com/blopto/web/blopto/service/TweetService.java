@@ -21,4 +21,10 @@ public class TweetService implements ITweetService {
 
         return tweets;
     }
+
+    @Override
+    public Tweet save(Tweet tweet) {
+        repository.save(tweet);
+        return tweet;
+    }
 }
