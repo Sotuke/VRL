@@ -29,17 +29,23 @@ window.onload = function() {
         }
 
     }
+    function post() {
+        
+    }
 
     postButton.onclick = function() {
         var text = postBox.value.trim();
         if (text.length > 0 && text.length < 140) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "/", true);
+            xhttp.send("ee");
             /* AJAX varsti */
-            posts.innerHTML = `
+            /*posts.innerHTML = `
                     <article class="post">
                         <img class="avatar" src="avatar.svg"><span class="username">Username</span><span class="handle">@username</span><time class="time">now</time>
                         <div class="text">` + text + `</div>
                     </article>
-            ` + posts.innerHTML;
+            ` + posts.innerHTML;*/
         }
     }
 }

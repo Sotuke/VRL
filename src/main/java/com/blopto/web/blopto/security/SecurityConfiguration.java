@@ -1,4 +1,4 @@
-package com.blopto.web.blopto;
+package com.blopto.web.blopto.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
