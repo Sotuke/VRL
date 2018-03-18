@@ -1,6 +1,6 @@
 package com.blopto.web.blopto.index;
 
-import com.blopto.web.blopto.service.ITweetService;
+import com.blopto.web.blopto.service.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class IndexController {
 
     @Autowired
-    ITweetService tweetService;
+    IPostService postService;
 
     private static final String TEMPLATE_MAIN = "index";
 

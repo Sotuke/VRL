@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS tweets;
-CREATE TABLE tweets(
+DROP TABLE IF EXISTS post;
+CREATE TABLE post(
   id serial PRIMARY KEY,
   text VARCHAR(255),
   dates TIMESTAMP);

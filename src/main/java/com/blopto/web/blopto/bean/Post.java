@@ -10,22 +10,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TWEETS")
-public class Tweet {
+@Table(name = "post")
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String tweet;
+    private String post;
     private Timestamp date;
 
-    public Tweet() {
+    public Post() {
     }
 
-    public Tweet(Long id, String tweet, Timestamp date) {
+    public Post(Long id, String post, Timestamp date) {
         this.id = id;
-        this.tweet = tweet;
+        this.post = post;
         this.date = date;
     }
 
@@ -37,12 +37,12 @@ public class Tweet {
         this.id = id;
     }
 
-    public String getTweet() {
-        return tweet;
+    public String getPost() {
+        return post;
     }
 
-    public void setTweet(String tweet) {
-        this.tweet = tweet;
+    public void setPost(String post) {
+        this.post = post;
     }
 
     public Date getDate() {
@@ -57,7 +57,7 @@ public class Tweet {
     public int hashCode() {
         int hash = 7;
         hash = 79 * hash + Objects.hashCode(this.id);
-        hash = 79 * hash + Objects.hashCode(this.tweet);
+        hash = 79 * hash + Objects.hashCode(this.post);
         hash = 79 * hash + Objects.hashCode(this.date);
         return hash;
     }
@@ -73,11 +73,11 @@ public class Tweet {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Tweet other = (Tweet) obj;
+        final Post other = (Post) obj;
         if (this.date != other.date) {
             return false;
         }
-        if (!Objects.equals(this.tweet, other.tweet)) {
+        if (!Objects.equals(this.post, other.post)) {
             return false;
         }
         return Objects.equals(this.id, other.id);
@@ -85,7 +85,7 @@ public class Tweet {
 
     @Override
     public String toString() {
-        return "Tweet{" + "id=" + id + ", tweet=" + tweet
+        return "Post{" + "id=" + id + ", post=" + post
                 + ", date=" + date + '}';
     }
 }
