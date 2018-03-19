@@ -10,6 +10,7 @@ import java.util.List;
 
 @Controller
 public class PostController {
+    private final static String SUBSCRIPTION_PAGE = "/api/submitpost";
     private final PostService postService;
 
     @Autowired
@@ -18,16 +19,8 @@ public class PostController {
     }
 
     @RequestMapping(value = "/api/submitpost",method = RequestMethod.POST)
-    public void addPost(@RequestBody Post postDTO) {
-        System.out.println(postDTO.getDate() + " " + postDTO.getId());
+    public @ResponseBody void addPost(@RequestBody Post postDTO, Model model) {
         postService.addPost(postDTO);
-        List<Post> ee = postService.getAllPost();
-        for (Post e: ee){
-            System.out.println(e.getDate());
-            System.out.println(e.getId());
-            System.out.println(e.getPost());
-
-        }
     }
 
 }
