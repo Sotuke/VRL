@@ -43,7 +43,7 @@ window.onload = function() {
             xhr.open("POST", url, true);
             xhr.setRequestHeader("Content-type", "application/json");
             var data = JSON.stringify({"post": text, "date" : date});
-            xhr.send(data);
+            xhr.send({"post": text, "date" : date});
 
 
 

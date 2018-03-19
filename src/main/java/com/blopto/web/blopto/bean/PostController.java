@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Controller
@@ -20,6 +21,7 @@ public class PostController {
 
     @RequestMapping(value = "/api/submitpost",method = RequestMethod.POST)
     public @ResponseBody Post addPost(@RequestBody Post postDTO) {
+        postDTO.setDate(new Timestamp(System.currentTimeMillis()));
         postService.addPost(postDTO);
         return postDTO;
     }
