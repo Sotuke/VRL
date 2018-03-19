@@ -37,13 +37,15 @@ window.onload = function() {
     postButton.onclick = function() {
         var text = postBox.value.trim();
         var date = new Date();
+        var data = new FormData();
         if (text.length > 0 && text.length < 140) {
             var xhr = new XMLHttpRequest();
+            data.append("post",text);
             var url = "/api/submitpost";
             xhr.open("POST", url, true);
-            xhr.setRequestHeader("Content-type", "application/json");
-            var data = JSON.stringify({"post": text, "date" : date});
-            xhr.send({"post": text, "date" : date});
+            //xhr.setRequestHeader("Content-type", "application/json");
+            //var data = JSON.stringify({"post": text, "date" : date});
+            xhr.send(data);
 
 
 
