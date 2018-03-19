@@ -1,4 +1,4 @@
-package com.blopto.web.blopto.bean;
+package com.blopto.web.blopto.api.PostDTO;
 
 import com.blopto.web.blopto.bean.Post;
 

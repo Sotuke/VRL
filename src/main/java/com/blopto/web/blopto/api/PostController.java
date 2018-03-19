@@ -1,9 +1,11 @@
-package com.blopto.web.blopto.api;
+package com.blopto.web.blopto.bean;
 
 
-import com.blopto.web.blopto.bean.Post;
+import com.blopto.web.blopto.api.PostDTO.PostDTO;
+// import org.json.JSONObject; //???
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -16,15 +18,21 @@ public class PostController {
         this.postService = postService;
     }
 
-    @PostMapping("/api/submitpost")
+    @RequestMapping(value = "/api/submitpost",method = RequestMethod.POST,produces = "application/json")
     public @ResponseBody
-    String addPost(@ModelAttribute Post postDTO) {
-        System.out.println("mida");
+    String addPost(@ModelAttribute PostDTO postDTO, Model model) {
         Post post = new Post();
+        post.setDate();
         post.setPost(postDTO.getPost());
-        post.setDate((int) System.currentTimeMillis() / 1000);
-        System.out.println(post);
-        postService.addPost(post);
-        return "out";
+        try {
+            postService.addPost(post);
+        }
+        catch (Exception e) {
+            return "{\"success\":false}";
+        }
+        for (Post i : postService.getAllPost()) System.out.println(i.getDate() + " " + i.getId() + " " + i.getPost());
+        return "{\"success\":true}";
     }
+
+
 }

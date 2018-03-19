@@ -41,7 +41,7 @@ public class Post {
         return date;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setDate() {
+        this.date = new Timestamp(System.currentTimeMillis());
     }
 }
