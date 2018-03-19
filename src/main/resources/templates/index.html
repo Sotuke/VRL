@@ -45,7 +45,7 @@
                     <h2 class="hidden">Here are the already posted things</h2>
                     <article class="post" th:each="post : ${posts}">
                         <h3 class="hidden">This is a post</h3>
-                        <img class="avatar" src="/avatar.svg" width="40" alt="default avatar"><span class="username">Username</span><span class="handle">@username</span><time class="time" th:text="${post.getDate()}"></time>
+                        <img class="avatar" src="/avatar.svg" width="40" height="40" alt="default avatar"><span class="username">Username</span><span class="handle">@username</span><time class="time" th:text="${post.getDate()}"></time>
                         <div class="text" th:text="${post.getPost()}"></div>
                     </article>
                 </section>
