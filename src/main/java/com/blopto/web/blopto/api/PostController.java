@@ -1,15 +1,13 @@
-package com.blopto.web.blopto.bean;
+package com.blopto.web.blopto.api;
 
 
-import com.blopto.web.blopto.bean.PostDTO.PostDTO;
-import org.json.JSONObject;
+import com.blopto.web.blopto.api.PostDTO.PostDTO;
+// import org.json.JSONObject; //???
+import com.blopto.web.blopto.bean.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @Controller
 public class PostController {
@@ -21,7 +19,7 @@ public class PostController {
         this.postService = postService;
     }
 
-    @RequestMapping(value = "/api/submitpost",method = RequestMethod.POST,produces = "application/json")
+    @RequestMapping(value = "/api/submitpost", method = RequestMethod.POST, produces = "application/json")
     public @ResponseBody
     String addPost(@ModelAttribute PostDTO postDTO, Model model) {
         Post post = new Post();
@@ -31,10 +29,10 @@ public class PostController {
             postService.addPost(post);
         }
         catch (Exception e) {
-            return "{\"success\":false}";
+            return "{\"success\": false}";
         }
-        for (Post i : postService.getAllPost()) System.out.println(i.getDate() + " " + i.getId() + " " + i.getPost());
-        return "{\"success\":true}";
+        //for (Post i : postService.getAllPosts()) System.out.println(i.getDate() + " " + i.getId() + " " + i.getPost());
+        return "{\"success\": true}";
     }
 
 

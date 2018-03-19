@@ -1,4 +1,4 @@
-package com.blopto.web.blopto.bean;
+package com.blopto.web.blopto.api;
 
 import com.blopto.web.blopto.bean.Post;
 
@@ -21,7 +21,7 @@ public class PostService {
         postRepository.save(post);
     }
 
-    public List<Post> getAllPost() {
+    public List<Post> getAllPosts() {
         return postRepository.findAll();
     }
 }
