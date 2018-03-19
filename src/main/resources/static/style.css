@@ -33,7 +33,7 @@ nav a:hover {
 }
 
 
-/* ASIDE */
+/* SIDEBAR */
 aside {
     position: fixed;
     left: 0px;
@@ -121,13 +121,13 @@ main {
 }
 .post .handle {
     font-size: 0.8em;
-    color: #AAAAAA;
+    color: #999999;
     margin-left: 4px;
     display: inline-block;
 }
 .post .time {
     font-size: 0.8em;
-    color: #AAAAAA;
+    color: #999999;
     font-style: italic;
     margin-left: 4px;
     display: inline-block;
@@ -155,7 +155,10 @@ button {
 }
 
 
-
+// GENERAL
+.hidden {
+    display: none;
+}
 p {
     text-align: justify;
 }
