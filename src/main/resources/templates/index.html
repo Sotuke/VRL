@@ -34,9 +34,11 @@
             <section id="main">
                 <section id="posting">
                     <h2 class="hidden">Post a new thing here</h2>
-                    <label class="hidden" for="postbox">Post things here</label>
-                    <textarea id="postbox" placeholder="Write a message!" title="message box"></textarea>
-                    <button id="postbutton" title="post button">Post</button>
+                    <form id="postform" action="/api/submitpost" method="post">
+                        <label class="hidden" for="postbox">Post things here</label>
+                        <textarea id="postbox" name="post" placeholder="Write a message!" title="message box"></textarea>
+                        <input id="postbutton" type="submit" value="Post" title="post button">
+                    </form>
                 </section>
                 <section id="posts">
                     <h2 class="hidden">Here are the already posted things</h2>

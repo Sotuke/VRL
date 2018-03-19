@@ -7,6 +7,7 @@ window.onload = function() {
     var menuArrow = document.getElementById("menuarrow");
     var postBox = document.getElementById("postbox");
     var postButton = document.getElementById("postbutton");
+    var postForm = document.getElementById("postform");
     var posts = document.getElementById("posts");
 
     window.addEventListener("resize", function(event) {
@@ -31,12 +32,8 @@ window.onload = function() {
         }
 
     }
-    function post() {
-        
-    }
 
-
-    postButton.onclick = function() {
+    postForm.onsubmit = function() {
         var text = postBox.value.trim();
 
         if (text.length > 0 && text.length < 140) {
@@ -60,12 +57,14 @@ window.onload = function() {
 
             posts.insertBefore(newPost, posts.firstChild);
         }
+
+        return false;
     }
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             response = JSON.parse(this.responseText);
-            console.log(response);
+            //console.log(response);
             if (!response.success) {
                 alert("Mingi error oli. Vist ei salvestanud ära.");
             }
