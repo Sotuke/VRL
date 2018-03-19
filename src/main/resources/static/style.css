@@ -147,7 +147,7 @@ textarea {
     color: #666666;
     box-sizing: border-box;
 }
-button {
+input[type="submit"] {
     padding: 4px 8px;
     font-size: 1.2em;
     font-family: Lato, sans-serif;
@@ -162,13 +162,14 @@ button {
 p {
     text-align: justify;
 }
-::-moz-focus-inner {
+/* removed these because powermapper doesn't like em
+/*::-moz-focus-inner {
     border:0;
 }
 a:focus {
     border: none;
     outline: 0;
-}
+}*/
 
 @media screen and (max-width: 800px) {
     nav {
