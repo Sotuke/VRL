@@ -21,7 +21,7 @@ public class PostController {
 
     @RequestMapping(value = "/api/submitpost",method = RequestMethod.POST)
     public @ResponseBody Post addPost(@RequestBody Post postDTO) {
-        postDTO.setDate(new Timestamp(System.currentTimeMillis()));
+        postDTO.setDate();
         postService.addPost(postDTO);
         return postDTO;
     }
