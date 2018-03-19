@@ -13,7 +13,7 @@ import java.util.Map;
 
 @Controller
 public class PostController {
-    private final static String SUBSCRIPTION_PAGE = "subscription/subscription";
+    private final static String SUBSCRIPTION_PAGE = "/api/submitpost";
     private final PostService postService;
 
     @Autowired
@@ -27,8 +27,14 @@ public class PostController {
         Post post = new Post();
         post.setDate();
         post.setPost(postDTO.getPost());
-        postService.addPost(post);
-        return post.toString();
+        try {
+            postService.addPost(post);
+        }
+        catch (Exception e) {
+            return "{\"success\":false}";
+        }
+        for (Post i : postService.getAllPost()) System.out.println(i.getDate() + " " + i.getId() + " " + i.getPost());
+        return "{\"success\":true}";
     }
 
 
