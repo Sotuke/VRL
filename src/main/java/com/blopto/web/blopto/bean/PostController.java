@@ -21,7 +21,6 @@ public class PostController {
     @RequestMapping(value = "/api/submitpost",method = RequestMethod.POST)
     public @ResponseBody Post addPost(@RequestBody Post postDTO) {
         postService.addPost(postDTO);
-        System.out.print(postService.getAllPost());
         return postDTO;
     }
 
