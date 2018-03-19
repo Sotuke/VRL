@@ -46,12 +46,19 @@ window.onload = function() {
             xhttp.send(data);
             postBox.value = "";
 
-            posts.innerHTML = `
-                    <article class="post">
-                        <img class="avatar" src="avatar.svg"><span class="username">Username</span><span class="handle">@username</span><time class="time">now</time>
-                        <div class="text">` + text + `</div>
-                    </article>
-            ` + posts.innerHTML;
+            // Add new post to the DOM
+            var newPost = document.createElement("article");
+            newPost.classList.add("post");
+            newPost.innerHTML = `
+                <h3 class="hidden">This is a post</h3>
+                <img class="avatar" src="avatar.svg"><span class="username">Username</span><span class="handle">@username</span><time class="time">now</time>
+            `
+            var postText = document.createElement("div");
+            postText.classList.add("text");
+            postText.appendChild(document.createTextNode(text)); // sanitize the text
+            newPost.appendChild(postText);
+
+            posts.insertBefore(newPost, posts.firstChild);
         }
     }
 
