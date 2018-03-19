@@ -5,7 +5,10 @@
         <!-- CSS -->
         <link type="text/css" rel="stylesheet" href="/style.css" />
         <!-- Meta tags -->
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Microblogging with a focus on privacy">
+        <meta name="keywords" content="Blopto,microblogging,privacy,encryption">
+        <meta name="author" content="Andri Soone,Paul Liibert,Kermo Laurits">
         <meta charset="UTF-8">
         <!-- FontAwesome CDN -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -30,12 +33,16 @@
         <main>
             <section id="main">
                 <section id="posting">
-                    <textarea id="postbox" placeholder="Write a message!"></textarea>
-                    <button id="postbutton">Post</button>
+                    <h2 class="hidden">Post a new thing here</h2>
+                    <label class="hidden" for="postbox">Post things here</label>
+                    <textarea id="postbox" placeholder="Write a message!" title="message box"></textarea>
+                    <button id="postbutton" title="post button">Post</button>
                 </section>
                 <section id="posts">
+                    <h2 class="hidden">Here are the already posted things</h2>
                     <article class="post" th:each="post : ${posts}">
-                        <img class="avatar" src="/avatar.svg" alt="picture"><span class="username">Username</span><span class="handle">@username</span><time class="time" th:text="${post.getDate()}"></time>
+                        <h3 class="hidden">This is a post</h3>
+                        <img class="avatar" src="/avatar.svg" width="40px" alt="default avatar"><span class="username">Username</span><span class="handle">@username</span><time class="time" th:text="${post.getDate()}"></time>
                         <div class="text" th:text="${post.getPost()}"></div>
                     </article>
                 </section>
