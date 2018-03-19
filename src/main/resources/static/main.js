@@ -1,4 +1,6 @@
 window.onload = function() {
+    var xhttp = new XMLHttpRequest();
+
     var menuButton = document.getElementById("menubutton");
     var sideMenu = document.getElementById("sidemenu");
     var menuBurger = document.getElementById("menuburger");
@@ -36,27 +38,30 @@ window.onload = function() {
 
     postButton.onclick = function() {
         var text = postBox.value.trim();
-        var date = new Date();
-        var data = new FormData();
+
         if (text.length > 0 && text.length < 140) {
-            var xhr = new XMLHttpRequest();
-            data.append("post",text);
-            var url = "/api/submitpost";
-            xhr.open("POST", url, true);
-            //xhr.setRequestHeader("Content-type", "application/json");
-            //var data = JSON.stringify({"post": text, "date" : date});
-            xhr.send(data);
+            var data = new FormData();
+            data.append("post", text);
+            xhttp.open("POST", "/api/submitpost", true);
+            xhttp.send(data);
+            postBox.value = "";
 
-
-
-
-            /* AJAX varsti */
             posts.innerHTML = `
                     <article class="post">
                         <img class="avatar" src="avatar.svg"><span class="username">Username</span><span class="handle">@username</span><time class="time">now</time>
                         <div class="text">` + text + `</div>
                     </article>
             ` + posts.innerHTML;
+        }
+    }
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            response = JSON.parse(this.responseText);
+            console.log(response);
+            if (!response.success) {
+                alert("Mingi error oli. Vist ei salvestanud ära.");
+            }
         }
     }
 }

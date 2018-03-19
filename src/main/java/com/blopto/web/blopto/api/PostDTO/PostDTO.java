@@ -1,4 +1,4 @@
-package com.blopto.web.blopto.bean.PostDTO;
+package com.blopto.web.blopto.api.PostDTO;
 
 import lombok.Getter;
 import lombok.Setter;
