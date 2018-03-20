@@ -10,6 +10,20 @@ window.onload = function() {
     var postForm = document.getElementById("postform");
     var posts = document.getElementById("posts");
 
+    // Fontawesome CDN fallback
+    for (var i = 0; i < document.styleSheets.length; i++) {
+        var sheet = document.styleSheets[i];
+        if (sheet.href === "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css") {
+            if (!sheet.cssRules.length) {
+                var link = document.createElement("link");
+                link.type = "text/css";
+                link.rel = "stylesheet";
+                link.href = "/font-awesome-4.7.0/css/font-awesome.min.css";
+                document.head.appendChild(link);
+            }
+        }
+    }
+
     window.addEventListener("resize", function(event) {
         if (window.innerWidth >= 800) {
             sideMenu.style.left = "0px";
@@ -36,7 +50,7 @@ window.onload = function() {
     postForm.onsubmit = function() {
         var text = postBox.value.trim();
 
-        if (text.length > 0 && text.length < 140) {
+        if (text.length > 0 && text.length <= 200) {
             var data = new FormData();
             data.append("post", text);
             xhttp.open("POST", "/api/submitpost", true);
@@ -66,7 +80,7 @@ window.onload = function() {
             response = JSON.parse(this.responseText);
             //console.log(response);
             if (!response.success) {
-                alert("Mingi error oli. Vist ei salvestanud ära.");
+                alert("An error occurred. Your post was not saved.");
             }
         }
     }
