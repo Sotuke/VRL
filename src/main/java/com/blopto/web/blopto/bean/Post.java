@@ -3,14 +3,8 @@ package com.blopto.web.blopto.bean;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
-import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 @Getter

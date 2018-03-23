@@ -1,12 +1,11 @@
-package com.blopto.web.blopto.bean;
+package com.blopto.web.blopto.service;
 
 import com.blopto.web.blopto.bean.Post;
-
-import java.util.List;
-
 import com.blopto.web.blopto.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PostService {
