@@ -1,7 +1,8 @@
-package com.blopto.web.blopto.registration;
+package com.blopto.web.controller;
 
-import com.blopto.web.blopto.bean.User;
-import com.blopto.web.blopto.bean.dto.RegistrationDTO;
+import com.blopto.web.bean.User;
+import com.blopto.web.bean.dto.RegistrationDTO;
+import com.blopto.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;

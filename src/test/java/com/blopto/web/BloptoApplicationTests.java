@@ -1,4 +1,4 @@
-package com.blopto.web.blopto;
+package com.blopto.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

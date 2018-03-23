@@ -1,7 +1,7 @@
-package com.blopto.web.blopto.service;
+package com.blopto.web.service;
 
-import com.blopto.web.blopto.bean.Post;
-import com.blopto.web.blopto.repository.PostRepository;
+import com.blopto.web.bean.Post;
+import com.blopto.web.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

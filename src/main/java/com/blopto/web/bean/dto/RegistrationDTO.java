@@ -1,4 +1,4 @@
-package com.blopto.web.blopto.bean.dto;
+package com.blopto.web.bean.dto;
 
 import lombok.Getter;
 import lombok.Setter;

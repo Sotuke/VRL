@@ -1,8 +1,10 @@
-package com.blopto.web.blopto.bean;
+package com.blopto.web.controller;
 
 
-import com.blopto.web.blopto.bean.dto.PostDTO;
-import com.blopto.web.blopto.service.PostService;
+import com.blopto.web.bean.Post;
+import com.blopto.web.bean.dto.PostDTO;
+// import org.json.JSONObject; //???
+import com.blopto.web.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

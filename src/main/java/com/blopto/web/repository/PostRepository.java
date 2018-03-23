@@ -1,7 +1,7 @@
-package com.blopto.web.blopto.repository;
+package com.blopto.web.repository;
 
 
-import com.blopto.web.blopto.bean.Post;
+import com.blopto.web.bean.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
-package com.blopto.web.blopto.service;
+package com.blopto.web.service;
 
-import com.blopto.web.blopto.bean.User;
+import com.blopto.web.bean.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

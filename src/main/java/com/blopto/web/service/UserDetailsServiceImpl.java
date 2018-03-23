@@ -1,8 +1,7 @@
-package com.blopto.web.blopto.service;
+package com.blopto.web.service;
 
-import com.blopto.web.blopto.bean.User;
-import com.blopto.web.blopto.registration.UserService;
-import com.blopto.web.blopto.repository.UserRepository;
+import com.blopto.web.bean.User;
+import com.blopto.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
