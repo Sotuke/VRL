@@ -37,18 +37,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(final HttpSecurity http) throws Exception {
-        // @formatter:off
-        http
-                .csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/login*","/signin/**","/signup/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin().loginPage("/login").permitAll()
-                .and()
-                .logout();
-    } // @formatter:on
+    protected void configure(HttpSecurity http) throws Exception {
+        // whitelist everything for now
+        http.authorizeRequests().antMatchers("/**").permitAll();
+        http.cors().and().csrf().disable();
+
+    }
 
     @Bean
     // @Primary
