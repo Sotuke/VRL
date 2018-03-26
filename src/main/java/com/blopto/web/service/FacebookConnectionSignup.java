@@ -18,6 +18,9 @@ public class FacebookConnectionSignup implements ConnectionSignUp {
         System.out.println("signup === ");
         final User user = new User();
         user.setUsername(connection.getDisplayName());
+        user.setEmail(connection.fetchUserProfile().getEmail());
+        user.setFirstName(connection.fetchUserProfile().getFirstName());
+        user.setFirstName(connection.fetchUserProfile().getLastName());
         user.setPassword("asd");
         userRepository.save(user);
         return user.getUsername();
