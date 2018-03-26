@@ -17,8 +17,11 @@ public class FacebookConnectionSignup implements ConnectionSignUp {
     public String execute(Connection<?> connection) {
         System.out.println("signup === ");
         final User user = new User();
+
+
         user.setUsername(connection.getDisplayName());
         user.setEmail(connection.fetchUserProfile().getEmail());
+
         user.setFirstName(connection.fetchUserProfile().getFirstName());
         user.setLastName(connection.fetchUserProfile().getLastName());
         user.setPassword("asd");
