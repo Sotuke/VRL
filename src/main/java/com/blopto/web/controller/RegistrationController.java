@@ -40,7 +40,7 @@ public class RegistrationController {
         user.setFirstName(registrationDTO.getFirstName());
         user.setLastName(registrationDTO.getLastName());
         user.setUsername(registrationDTO.getUsername());
-        user.setEmail(registrationDTO.getEmail());
+        //user.setEmail(registrationDTO.getEmail());
         //user.setPassword(bCryptPasswordEncoder.encode(registrationDTO.getPassword()));
         user.setPassword(registrationDTO.getPassword());
 
