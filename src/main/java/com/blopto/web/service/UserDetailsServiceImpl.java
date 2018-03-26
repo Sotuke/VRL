@@ -3,40 +3,28 @@ package com.blopto.web.service;
 import com.blopto.web.bean.User;
 import com.blopto.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserService userService;
-    private UserRepository userRepository;
 
     @Autowired
-    public UserDetailsServiceImpl(UserService userService) {
-        this.userService = userService;
-    }
+    private UserRepository userRepository;
 
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-        // siin peaks vist Optionali kasutama
-        ///User user = userRepository.findByUsername(username);
-        //User user = userService(user)
-
-
-        User user = userRepository.findByUsername(username);
-
+    @Override
+    public UserDetails loadUserByUsername(final String username) {
+        final User user = userRepository.findByUsername(username);
         if (user == null) {
-            System.out.println("User not found! " + username);
-            throw new UsernameNotFoundException("User " + username + " was not found!");
+            throw new UsernameNotFoundException(username);
         }
-
-        UserDetails userDetails = (UserDetails) user;
-
-        return userDetails;
+        return new org.springframework.security.core.userdetails.User(username, user.getPassword(), true, true, true, true, Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
     }
-
 }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Blopto</title>
+        <!-- CSS -->
+        <link type="text/css" rel="stylesheet" href="/style.css" />
+        <!-- Meta tags -->
+        <meta name="viewport" content="width=device-width">
+        <meta charset="UTF-8">
+        <!-- FontAwesome CDN -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <!-- JavaScript -->
+        <script src="/main.js"></script>
+    </head>
+    <body>
+        <nav>
+            <a id="menubutton"><em id="menuburger" class="fa fa-bars"></em><i id="menuarrow" class="fa fa-arrow-left"></i></a>
+        </nav>
+        <aside id="sidemenu">
+            <div id="sideavatar"></div>
+            <div id="sideusername" th:text="${username}"></div>
+            <div id="sidehandle" th:text="'@' + ${handle}">hmm</div>
+            <div id="sidelinks">
+                <a href="#"><i class="fa fa-search"></i>Search</a>
+                <a href="#"><i class="fa fa-envelope"></i>Messages (0)</a>
+                <a href="#"><i class="fa fa-cog"></i>Settings</a>
+                <a href="#"><i class="fa fa-sign-out"></i>Log out</a>
+            </div>
+        </aside>
+        <main>
+            <section id="main">
+                <section id="posting">
+                    <textarea id="postbox" placeholder="Write a message!"></textarea>
+                    <button id="postbutton">Post</button>
+                </section>
+                <section id="posts">
+                    <article class="post">
+                        <img class="avatar" src="/avatar.svg" alt="picture"><span class="username">Paul</span><span class="handle">@Terminaator</span><time class="time">1d ago</time>
+                        <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                    </article>
+                    <article class="post">
+                        <img class="avatar" src="/avatar.svg" alt="picture"><span class="username">Kermo</span><span class="handle">@Sotuke</span><time class="time">2d ago</time>
+                        <div class="text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+                    </article>
+                    <article class="post">
+                        <img class="avatar" src="/avatar.svg" alt="picture"><span class="username">Andri</span><span class="handle">@ndri</span><time class="time">3d ago</time>
+                        <div class="text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                    </article>
+                </section>
+            </section>
+        </main>
+    </body>
+</html>
