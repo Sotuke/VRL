@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot and Thymeleaf example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h3>Spring Boot and Thymeleaf, part 2 - forms</h3>
+<form action="#" th:action="@{/api/smart}" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <td>Isikukood:</td>
+            <td><input type="text" th:field="*{identityNumber}" /></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit post</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

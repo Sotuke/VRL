@@ -12,4 +12,5 @@ public class RegistrationDTO {
     private String username;
     private String email;
     private String password;
+    private String identityNumber;
 }

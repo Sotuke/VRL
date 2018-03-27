@@ -17,17 +17,14 @@ public class User{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique=true)
+    @NotNull
+    private String email;
 
     //@Column(unique=true)
     //@NotNull
-    private String email;
-
-
-
-    @Column(unique=true)
-    @NotNull
     private String username;
-
+    private String identityNumber;
     private String firstName;
     private String lastName;
     private String password;
