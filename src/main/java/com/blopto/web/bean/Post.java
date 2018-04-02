@@ -9,31 +9,18 @@ import java.sql.Timestamp;
 @Entity
 @Getter
 @Setter
-@Table(name = "post")
+@Table(name = "posts")
 public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @JoinColumn(name = "user_id", nullable = false)
+    private Long userId;
+
     private String post;
     private Timestamp date;
-    public Post(){
-    }
-
-    public Long getId(){
-        return id;
-    }
-    public String getPost() {
-        return post;
-    }
-
-    public void setPost(String post) {
-        this.post = post;
-    }
-    public Timestamp getDate(){
-        return date;
-    }
 
     public void setDate() {
         this.date = new Timestamp(System.currentTimeMillis());

@@ -21,8 +21,6 @@ public class MyUserDetailsService implements UserDetailsService {
         super();
     }
 
-    // API
-
     @Override
     public UserDetails loadUserByUsername(final String username) {
         final User user = userRepository.findByUsername(username);

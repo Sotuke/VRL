@@ -27,6 +27,7 @@ public class PostController {
     public @ResponseBody
     String addPost(@ModelAttribute PostDTO postDTO, Model model) {
         Post post = new Post();
+        post.setUserId(1L);
         post.setDate();
         post.setPost(postDTO.getPost());
         try {

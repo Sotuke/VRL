@@ -1,7 +1,9 @@
 package com.blopto.web.controller;
 
 
+import com.blopto.web.repository.UserRepository;
 import com.blopto.web.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.User;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class HelloController {
 
+    @Autowired
+    private UserRepository userRepository;
     private Facebook facebook;
     private ConnectionRepository connectionRepository;
     private UserService userService;
@@ -32,30 +36,18 @@ public class HelloController {
 
         String [] fields = { "id","name","email","first_name","last_name"};
         User facebookUser = facebook.fetchObject("me", User.class, fields);
-        String name=facebookUser.getName();
-        String email=facebookUser.getEmail();
-        String firstname=facebookUser.getFirstName();
-        String lastname=facebookUser.getLastName();
-        model.addAttribute("name",name );
-        model.addAttribute("email",email );
-        model.addAttribute("firstname",firstname);
-        model.addAttribute("lastname",lastname);
-        model.addAttribute("facebookProfile", facebook.fetchObject("me", User.class, fields));
-
         System.out.println(facebookUser.getEmail());
-        System.out.println(facebookUser.getFirstName());
-        System.out.println(facebookUser.getLastName());
-        System.out.println(facebookUser.getName());
+        com.blopto.web.bean.User user = userRepository.findByEmail(facebookUser.getEmail());
 
-        com.blopto.web.bean.User user = new com.blopto.web.bean.User();
-
-        user.setEmail(facebookUser.getEmail());
-        user.setFirstName(facebookUser.getFirstName());
-        user.setLastName(facebookUser.getLastName());
-
-        userService.registerUser(user);
-
-        return "hello";
+        if (user == null) {
+            com.blopto.web.bean.User newUser = new com.blopto.web.bean.User();
+            newUser.setEmail(facebookUser.getEmail());
+            newUser.setFirstName(facebookUser.getFirstName());
+            newUser.setLastName(facebookUser.getLastName());
+            model.addAttribute("user", newUser);
+            return "registration";
+        } else {
+            return "test2";
+        }
     }
-
 }

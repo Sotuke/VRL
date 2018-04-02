@@ -17,9 +17,13 @@ public class UserService {
     public User registerUser(User newUser) {
 
         User existing = userRepository.findByEmail(newUser.getEmail());
-
         if (existing != null) {
             throw new UnsupportedOperationException("Cannot register user with same e-mail twice");
+        }
+
+        existing = userRepository.findByUsername(newUser.getUsername());
+        if (existing != null) {
+            throw new UnsupportedOperationException("Cannot register user with same username twice");
         }
 
         return userRepository.save(newUser);
