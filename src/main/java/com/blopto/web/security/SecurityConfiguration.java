@@ -28,12 +28,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/user","/","/index").authenticated()
+        http.authorizeRequests().antMatchers("/user","/index").authenticated()
         .anyRequest().permitAll()
         .and()
-        .formLogin().loginPage("/login").defaultSuccessUrl("/").permitAll()
+        .formLogin().loginPage("/login").defaultSuccessUrl("/user").permitAll()
         .and()
-        .authorizeRequests().antMatchers("/api/register","registration","/connect/facebook","/login/facebook","/landing").permitAll()
+        .authorizeRequests().antMatchers("/register","/connect/facebook","/login/facebook","/landing","login").permitAll()
         .anyRequest().permitAll();
 
         http.cors().and().csrf().disable();

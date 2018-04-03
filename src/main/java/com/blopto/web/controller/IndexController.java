@@ -20,7 +20,7 @@ public class IndexController {
         this.postService = postService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/user")
     public String index(
             @RequestParam(value="username", required=false, defaultValue="Username") String username,
             @RequestParam(value="handle", required=false, defaultValue="username") String handle,
@@ -34,7 +34,7 @@ public class IndexController {
         return TEMPLATE_MAIN;
     }
 
-    @GetMapping("/landing")
+    @GetMapping("/")
     public String landing() {
         return "landing";
     }

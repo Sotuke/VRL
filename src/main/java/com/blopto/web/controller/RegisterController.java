@@ -21,12 +21,12 @@ public class RegisterController {
     @Autowired
     private MailSender mailSender;
 
-    @GetMapping(value="/register")
+    @GetMapping("/register")
     public String printWelcome(Model model) {
         return "register";
     }
 
-    @PostMapping(value = "/register")
+    @PostMapping("/register")
     public String processRegistrationForm(RegistrationDTO registrationDTO) {
 
         User user = new User();
