@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Spring Boot and Thymeleaf example</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Blopto Login</title>
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="/style.css" />
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Microblogging with a focus on privacy"/>
+    <meta name="keywords" content="Blopto,microblogging,privacy,encryption"/>
+    <meta name="author" content="Andri Soone,Paul Liibert,Kermo Laurits"/>
+    <meta charset="UTF-8"/>
+    <!-- FontAwesome CDN -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
+    <!-- JavaScript -->
+    <script src="/main.js"></script>
 </head>
-<body>
-<h3>Spring Boot and Thymeleaf, part 2 - forms</h3>
-<form action="#" th:action="@{/api/smart}" th:object="${user}" method="post">
-    <table>
-        <tr>
-            <td>Isikukood:</td>
-            <td><input type="text" th:field="*{identityNumber}" /></td>
-        </tr>
-        <tr>
-            <td><button type="submit">Submit post</button></td>
-        </tr>
-    </table>
+<body id="loginbody">
+<form th:action="@{/login}" method="post">
+    <div><label> User Name : <input type="text" name="username"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><input type="submit" value="Sign In"/></div>
 </form>
 </body>
 </html>
