@@ -27,7 +27,7 @@ public class UserService {
         }
 
         existing = userRepository.findByIdentityNumber(newUser.getIdentityNumber());
-        if (existing != null) {
+        if (existing != null && existing.getIdentityNumber() != null) {
             throw new UnsupportedOperationException("Cannot register user with same identity number twice");
         }
 
