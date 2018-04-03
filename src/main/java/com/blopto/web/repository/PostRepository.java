@@ -12,12 +12,9 @@ import java.util.List;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
-    public final static String FIND_BY_ADDRESS_QUERY = "SELECT p " +
-            "FROM Person p LEFT JOIN p.addresses a " +
-            "WHERE a.address = :address";
 
-    Long countByUserId(Long userId);
+    //Long countByUserId(Long userId);
 
-    @Query("select p from post p left join p.user a where a.idUser = :idUser")
+    @Query("select p from Post p left join p.user a where a.idUser = :idUser")
     List<Post> findByUserId(@Param("idUser") Long idUser);
 }

@@ -19,7 +19,7 @@ public class Post {
     private String post;
     private Timestamp date;
     @ManyToOne
-    @JoinColumn(name="iduser")
+    @JoinColumn(name="idUser")
     private User user;
 
     public void setDate() {

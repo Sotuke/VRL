@@ -35,7 +35,7 @@ public class PostController {
         User user = userRepository.findByUsername(authentication.getName());
 
         Post post = new Post();
-        post.setUserId(user.getId());
+        post.setUser(user);
         post.setDate();
         post.setPost(postDTO.getPost());
         try {
@@ -43,7 +43,7 @@ public class PostController {
         } catch (Exception e) {
             return "{\"success\":false}";
         }
-        for (Post i : postService.getAllPost()) System.out.println(i.getDate() + " " + i.getId() + " " + i.getPost());
+        for (Post i : postService.getAllPost()) System.out.println(i.getDate() + " " + i.getIdPost() + " " + i.getPost());
         return "{\"success\":true}";
     }
 

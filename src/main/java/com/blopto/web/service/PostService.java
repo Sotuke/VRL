@@ -24,8 +24,11 @@ public class PostService {
         return postRepository.findAll();
     }
 
-    public Long getCount(Long userId) {
-        return postRepository.countByUserId(userId);
+    //public Long getCount(Long userId) {
+      //  return postRepository.countByUserId(userId);
+    //}
+    public List<Post> findByUserId(Long userId){
+        return postRepository.findByUserId(userId);
     }
 
 }
