@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Getter
@@ -15,14 +17,15 @@ public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name="iduser")
+    private Long idUser;
 
     @Column(unique=true)
     @NotNull
     private String email;
 
-    //@Column(unique=true)
-    //@NotNull
+    @OneToMany(mappedBy = "user")
+    private List<Post> post;
     private String username;
     private String identityNumber;
     private String firstName;

@@ -14,13 +14,13 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @JoinColumn(name = "user_id", nullable = false)
-    private Long userId;
-
+    @Column(name="idpost")
+    private Long idPost;
     private String post;
     private Timestamp date;
+    @ManyToOne
+    @JoinColumn(name="iduser")
+    private User user;
 
     public void setDate() {
         this.date = new Timestamp(System.currentTimeMillis());
