@@ -8,12 +8,4 @@ import lombok.Setter;
 public class PostDTO {
     private String post;
 
-    public PostDTO(String post){
-        this.post = post;
-    }
-    public String getPost(){
-        return post;
-    }
-
-
 }

@@ -23,4 +23,9 @@ public class PostService {
     public List<Post> getAllPost() {
         return postRepository.findAll();
     }
+
+    public Long getCount(Long userId) {
+        return postRepository.countByUserId(userId);
+    }
+
 }

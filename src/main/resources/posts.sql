@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS post;
-CREATE TABLE post(
+CREATE TABLE posts(
   id serial PRIMARY KEY,
   text VARCHAR(255),
   dates TIMESTAMP);

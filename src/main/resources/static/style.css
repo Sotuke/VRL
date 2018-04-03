@@ -3,6 +3,7 @@ body, html {
     margin: 0;
     color: #666666;
     background-color: #E6E6E6;
+    height: 100%;
 }
 
 
@@ -33,7 +34,7 @@ nav a:hover {
 }
 
 
-/* ASIDE */
+/* SIDEBAR */
 aside {
     position: fixed;
     left: 0px;
@@ -121,13 +122,13 @@ main {
 }
 .post .handle {
     font-size: 0.8em;
-    color: #AAAAAA;
+    color: #999999;
     margin-left: 4px;
     display: inline-block;
 }
 .post .time {
     font-size: 0.8em;
-    color: #AAAAAA;
+    color: #999999;
     font-style: italic;
     margin-left: 4px;
     display: inline-block;
@@ -138,8 +139,8 @@ main {
 }
 
 
-/* INPUTS */
-textarea {
+/* POSTING INPUT */
+#posting textarea {
     border: 1px solid #E6E6E6;
     padding: 12px;
     font-size: 1.2em;
@@ -147,25 +148,100 @@ textarea {
     color: #666666;
     box-sizing: border-box;
 }
-button {
+#posting input[type="submit"] {
     padding: 4px 8px;
     font-size: 1.2em;
     font-family: Lato, sans-serif;
     cursor: pointer;
 }
 
+/* LOGIN */
+#loginbody {
+    background-color: #3F51B5;
+    color: white;
+    margin: 0;
+    min-height: 100%;
+    display: grid;
+}
+#loginform {
+    width: 400px;
+    margin: auto;
+}
+#loginform input[type="text"],
+#loginform input[type="password"],
+#loginform input[type="submit"] {
+    font-family: Lato, sans-serif;
+    font-size: 1.2em;
+    padding: 0.5em;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+#loginform input[type="submit"] {
+    cursor: pointer;
+    float: right;
+    width: 25%;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    transition: background-color 0.1s ease;
+}
+#loginform input[type="submit"]:hover {
+    background-color: #449d48;
+}
+#loginform input[type="submit"]:active {
+    background-color: #3D8B40;
+}
+#alternateloginmethods {
+    margin-top: 40px;
+    text-align: center;
+}
+.alternate {
+    width: 2.2em;
+    height: 2.2em;
+    background-size: 100%;
+    display: inline-block;
+    border-radius: 4px;
+    margin-right: 8px;
+    float: right;
+}
+.alternate:hover {
+    opacity: 0.8;
+}
+.alternate:focus {
+    opacity: 0.8;
+}
+#facebook {
+    background-image: url(fb.svg);
+}
+#idcard {
+    background-image: url(id.svg);
+}
+#smartid {
+    background-image: url(smartid.svg);
+}
 
 
+
+/* GENERAL */
+.hidden {
+    display: none;
+}
 p {
     text-align: justify;
 }
-::-moz-focus-inner {
+/* removed these because powermapper doesn't like em
+/*::-moz-focus-inner {
     border:0;
 }
 a:focus {
     border: none;
     outline: 0;
-}
+}*/
 
 @media screen and (max-width: 800px) {
     nav {
@@ -202,5 +278,9 @@ a:focus {
     }
     button {
         font-size: 1em;
+    }
+
+    #loginform {
+        width: 90%;
     }
 }

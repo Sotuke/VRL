@@ -1,44 +1,21 @@
 package com.blopto.web.service;
 
-import com.blopto.web.bean.User;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.User;
 
 import java.util.Collection;
 
-public class UserDetailsImpl extends User implements UserDetails{
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+@Getter
+@Setter
+public class UserDetailsImpl extends User {
+
+    public UserDetailsImpl(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, authorities);
     }
 
-    @Override
-    public String getPassword() {
-        return super.getPassword();
-    }
-
-    @Override
-    public String getUsername() {
-        return super.getUsername();
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+    private String firstName;
+    private String lastName;
+    private String identityNumber;
 }

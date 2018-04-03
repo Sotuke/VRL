@@ -14,13 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.security.Principal;
-
 @Controller
 public class RegistrationController {
 
     private UserService userService;
-
 
     @Autowired
     public MailSender mailSender;
@@ -38,7 +35,6 @@ public class RegistrationController {
 
         return "registration";
     }
-
 
 
     @PostMapping(value = "/api/register", produces = "application/json")
@@ -63,8 +59,10 @@ public class RegistrationController {
                 SimpleMailMessage email = new SimpleMailMessage();
                 email.setTo(user.getEmail());
                 email.setFrom("kem.laurits@gmail.com");
-                email.setSubject("This is some kind of a subject");
-                email.setText("HTML Text or Any text You want to send!");
+                email.setSubject("Welcome to Blopto!");
+                email.setText("Welcome, " + user.getUsername() + "!\nThis is a small notification that " +
+                        "you have been added to the cult of Blopto!");
+
                 mailSender.send(email);
 
             } catch (Exception ex) {
@@ -78,11 +76,4 @@ public class RegistrationController {
             return "{\"success\":false,\"error\":\"" + e.getMessage() + "\"}";
         }
     }
-
-
-    @GetMapping("/user")
-    public Principal user(Principal principal) {
-        return principal;
-    }
-
 }

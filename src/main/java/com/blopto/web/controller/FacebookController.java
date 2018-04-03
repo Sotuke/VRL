@@ -4,17 +4,19 @@ package com.blopto.web.controller;
 import com.blopto.web.repository.UserRepository;
 import com.blopto.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
-public class HelloController {
+public class FacebookController {
 
     @Autowired
     private UserRepository userRepository;
@@ -22,21 +24,21 @@ public class HelloController {
     private ConnectionRepository connectionRepository;
     private UserService userService;
 
-    public HelloController(Facebook facebook, ConnectionRepository connectionRepository, UserService userService) {
+
+    public FacebookController(Facebook facebook, ConnectionRepository connectionRepository, UserService userService) {
         this.facebook = facebook;
         this.connectionRepository = connectionRepository;
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping("/login/facebook")
     public String helloFacebook(Model model) {
         if (connectionRepository.findPrimaryConnection(Facebook.class) == null) {
             return "redirect:/connect/facebook";
         }
 
-        String [] fields = { "id","name","email","first_name","last_name"};
+        String [] fields = { "id","email","first_name","last_name"};
         User facebookUser = facebook.fetchObject("me", User.class, fields);
-        System.out.println(facebookUser.getEmail());
         com.blopto.web.bean.User user = userRepository.findByEmail(facebookUser.getEmail());
 
         if (user == null) {
@@ -45,9 +47,14 @@ public class HelloController {
             newUser.setFirstName(facebookUser.getFirstName());
             newUser.setLastName(facebookUser.getLastName());
             model.addAttribute("user", newUser);
+
             return "registration";
         } else {
-            return "test2";
+            Authentication authentication = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(),
+                    AuthorityUtils.createAuthorityList("USER"));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            return "index";
         }
     }
+
 }
