@@ -33,7 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and()
         .formLogin().loginPage("/login").defaultSuccessUrl("/").permitAll()
         .and()
-        .authorizeRequests().antMatchers("/api/register","registration","/connect/facebook","/login/facebook").permitAll()
+        .authorizeRequests().antMatchers("/api/register","registration","/connect/facebook","/login/facebook","/landing").permitAll()
         .anyRequest().permitAll();
 
         http.cors().and().csrf().disable();

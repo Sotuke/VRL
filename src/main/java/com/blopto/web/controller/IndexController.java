@@ -34,6 +34,11 @@ public class IndexController {
         return TEMPLATE_MAIN;
     }
 
+    @GetMapping("/landing")
+    public String landing() {
+        return "landing";
+    }
+
 
 
 
