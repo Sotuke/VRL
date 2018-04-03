@@ -43,14 +43,8 @@ window.onload = function() {
             data.append("post",text);
             var url = "/api/submitpost";
             xhr.open("POST", url, true);
-            //xhr.setRequestHeader("Content-type", "application/json");
-            //var data = JSON.stringify({"post": text, "date" : date});
             xhr.send(data);
 
-
-
-
-            /* AJAX varsti */
             posts.innerHTML = `
                     <article class="post">
                         <img class="avatar" src="avatar.svg"><span class="username">Username</span><span class="handle">@username</span><time class="time">now</time>
@@ -58,5 +52,6 @@ window.onload = function() {
                     </article>
             ` + posts.innerHTML;
         }
+        return false;
     }
 }
