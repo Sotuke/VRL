@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Blopto Registration</title>
+        <!-- CSS -->
+        <link type="text/css" rel="stylesheet" href="/style.css" />
+        <!-- Meta tags -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="Microblogging with a focus on privacy"/>
+        <meta name="keywords" content="Blopto,microblogging,privacy,encryption"/>
+        <meta name="author" content="Andri Soone,Paul Liibert,Kermo Laurits"/>
+        <meta charset="UTF-8"/>
+        <!-- FontAwesome CDN -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
+        <!-- JavaScript -->
+        <script src="/main.js"></script>
+    </head>
+    <body id="loginbody">
+        <form id="loginform" action="/api/register" method="post">
+            <h1>blopto registration</h1>
+            <label class="hidden" for="firstName">Name</label>
+            <input type="text" placeholder="Name" name="firstName" th:required="required" />
+            <label class="hidden" for="username">Username</label>
+            <input type="text" placeholder="Username" name="username" th:required="required" />
+            <label class="hidden" for="email">Email address</label>
+            <input type="text" placeholder="Email address" name="email" th:required="required" />
+            <label class="hidden" for="password">Password</label>
+            <input type="password" placeholder="Password" name="password" th:required="required"/>
+            <label class="hidden" for="password2">Password again</label>
+            <input type="password" placeholder="Password again" name="password2" th:required="required"/>
+            <input type="submit" value="Register"/><!--<a id="idcard" class="alternate" href="#"></a>--><a id="smartid" class="alternate" href="#"></a><a id="facebook" class="alternate" href="/connect/facebook"></a>
+        </form>
+    </body>
+</html>
