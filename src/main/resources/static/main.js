@@ -52,6 +52,8 @@ window.onload = function() {
                     </article>
             ` + posts.innerHTML;
         }
+
+        postBox.value = "";
         return false;
     }
 }
