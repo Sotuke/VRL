@@ -3,6 +3,7 @@ package com.blopto.web.controller;
 import com.blopto.web.service.PostService;
 import com.blopto.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,14 +28,14 @@ public class IndexController {
     public String index(
             @RequestParam(value="username", required=false, defaultValue="Username") String username,
             @RequestParam(value="handle", required=false, defaultValue="username") String handle,
-            Model model
+            Model model, Authentication authentication
     ) {
 
         //List posts = postService.findByUserId(userService.getUser(username).getId());
         List posts = postService.getAllPost();
         Collections.reverse(posts);
         model.addAttribute("posts", posts);
-        model.addAttribute("username", username);
+        model.addAttribute("username", authentication.getName() );
         model.addAttribute("handle", handle);
         return TEMPLATE_MAIN;
     }

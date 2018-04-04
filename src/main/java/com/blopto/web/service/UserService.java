@@ -26,10 +26,10 @@ public class UserService {
             throw new UnsupportedOperationException("Cannot register user with same username twice");
         }
 
-        existing = userRepository.findByIdentityNumber(newUser.getIdentityNumber());
-        if (existing != null && existing.getIdentityNumber() != null) {
-            throw new UnsupportedOperationException("Cannot register user with same identity number twice");
-        }
+        //existing = userRepository.findByIdentityNumber(newUser.getIdentityNumber());
+        //if (existing != null && existing.getIdentityNumber() != null) {
+         //   throw new UnsupportedOperationException("Cannot register user with same identity number twice");
+        //}
 
         return userRepository.save(newUser);
     }
