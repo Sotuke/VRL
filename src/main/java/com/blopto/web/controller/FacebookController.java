@@ -53,7 +53,6 @@ public class FacebookController {
             newUser.setFirstName(facebookUser.getFirstName());
             newUser.setLastName(facebookUser.getLastName());
             model.addAttribute("user", newUser);
-
             return "register";
         } else {
             Authentication authentication = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(),

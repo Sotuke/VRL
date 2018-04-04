@@ -7,6 +7,10 @@ import com.blopto.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,7 +60,9 @@ public class RegisterController {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-
+            Authentication authentication = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(),
+                    AuthorityUtils.createAuthorityList("USER"));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
             return "redirect:/user";
 
         } catch (Exception e) {
