@@ -1,5 +1,22 @@
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; url=https://localhost:8180/login/facebook" />
 </head>
+<script type="text/javascript">
+    // Test for the ugliness.
+    if (window.location.hash == '#_=_'){
+
+        // Check if the browser supports history.replaceState.
+        if (history.replaceState) {
+
+            // Keep the exact URL up to the hash.
+            var cleanHref = window.location.href.split('#')[0].replace("/connect/facebook","");
+            // Replace the URL in the address bar without messing with the back button.
+            window.location.replace(cleanHref + "/login/facebook");
+
+        } else {
+
+        }
+
+    }
+</script>
 </html>
