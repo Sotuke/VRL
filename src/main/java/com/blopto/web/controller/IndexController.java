@@ -1,6 +1,7 @@
 package com.blopto.web.controller;
 
 import com.blopto.web.service.PostService;
+import com.blopto.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +15,12 @@ import java.util.List;
 public class IndexController {
     private static final String TEMPLATE_MAIN = "index";
     private final PostService postService;
+    private final UserService userService;
 
     @Autowired
-    IndexController(PostService postService) {
+    IndexController(PostService postService, UserService userService) {
         this.postService = postService;
+        this.userService = userService;
     }
 
     @GetMapping("/user")
@@ -26,6 +29,8 @@ public class IndexController {
             @RequestParam(value="handle", required=false, defaultValue="username") String handle,
             Model model
     ) {
+
+        //List posts = postService.findByUserId(userService.getUser(username).getId());
         List posts = postService.getAllPost();
         Collections.reverse(posts);
         model.addAttribute("posts", posts);
@@ -38,8 +43,6 @@ public class IndexController {
     public String landing() {
         return "landing";
     }
-
-
 
 
 }
