@@ -19,7 +19,8 @@
 
     }
     else {
-        window.location.replace("eeeee");
+        var cleanHref = window.location.href.replace("/connect","");
+        window.location.replace(cleanHref + "eeee");
     }
 </script>
 </html>
