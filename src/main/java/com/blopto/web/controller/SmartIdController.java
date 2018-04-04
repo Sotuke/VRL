@@ -18,7 +18,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -38,7 +37,6 @@ public class SmartIdController {
     }
 
     @PostMapping(value = "/api/smart", produces = "application/json")
-    @ResponseBody
     public String smartId(@ModelAttribute RegistrationDTO registrationDTO, Model model) {
 
         // Create new SmartIdClient against testing environment
@@ -74,13 +72,13 @@ public class SmartIdController {
                         AuthorityUtils.createAuthorityList("USER"));
                 SecurityContextHolder.getContext().setAuthentication(authentication);
 
-                return "{\"success\":true}";
+                return "redirect:/user";
 
             } catch (Exception exception) {
-                return "{\"success\":false,\"error\":" + exception.getMessage() + "}";
+                return "redirect:/login/smart";
             }
         } else {
-            return "{\"success\":false,\"error\":\"Specified identity number does not exist\"}";
+            return "redirect:/login/smart";
 
         }
 
