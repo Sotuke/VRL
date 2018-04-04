@@ -31,6 +31,8 @@ public class FacebookController {
         this.userService = userService;
     }
 
+
+
     @GetMapping("/login/facebook")
     public String helloFacebook(Model model) {
         if (connectionRepository.findPrimaryConnection(Facebook.class) == null) {
@@ -40,15 +42,17 @@ public class FacebookController {
         String [] fields = { "id","email","first_name","last_name"};
         User facebookUser = facebook.fetchObject("me", User.class, fields);
         com.blopto.web.bean.User user = userRepository.findByEmail(facebookUser.getEmail());
+        com.blopto.web.bean.User user1 = new com.blopto.web.bean.User();
+        user1.setEmail("eeee");
 
-        if (user == null) {
+        if (user1 == null) {
             com.blopto.web.bean.User newUser = new com.blopto.web.bean.User();
             newUser.setEmail(facebookUser.getEmail());
             newUser.setFirstName(facebookUser.getFirstName());
             newUser.setLastName(facebookUser.getLastName());
             model.addAttribute("user", newUser);
 
-            return "registration";
+            return "register";
         } else {
             Authentication authentication = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(),
                     AuthorityUtils.createAuthorityList("USER"));
