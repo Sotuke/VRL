@@ -19,8 +19,8 @@
 
     }
     else {
-        var clean = window.location.href;
-        window.location.replace(clean + "/login/facebookwew");
+        var cleanHref = window.location.href.replace("/connect/facebook","");
+        window.location.replace(clean + "/login/facebook");
     }
 </script>
 </html>
