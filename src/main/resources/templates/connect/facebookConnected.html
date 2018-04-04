@@ -20,7 +20,8 @@
     }
     else {
         var cleanHref = window.location.href.replace("/connect","");
-        window.location.replace(cleanHref + "eeee");
+        var cleanHref = cleanHref.replace("/facebook","");
+        window.location.replace(cleanHref + "user");
     }
 </script>
 </html>
