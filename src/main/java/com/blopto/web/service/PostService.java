@@ -1,12 +1,11 @@
-package com.blopto.web.blopto.api;
+package com.blopto.web.service;
 
-import com.blopto.web.blopto.bean.Post;
-
-import java.util.List;
-
-import com.blopto.web.blopto.repository.PostRepository;
+import com.blopto.web.bean.Post;
+import com.blopto.web.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PostService {
@@ -21,7 +20,15 @@ public class PostService {
         postRepository.save(post);
     }
 
-    public List<Post> getAllPosts() {
+    public List<Post> getAllPost() {
         return postRepository.findAll();
     }
+
+    public Long getCount(Long userId) {
+        return postRepository.countByUserId(userId);
+    }
+    public List<Post> findByUserId(Long userId){
+        return postRepository.findByUserId(userId);
+    }
+
 }

@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Hello Facebook</title>
+</head>
+<body>
+<form action="/connect/facebook" method="POST" id="myForm">
+    <input type="hidden" name="scope" value="email"></input>
+    <div class="formInfo">
+    </div>
+</form>
+<script type="text/javascript">
+    window.onload = function() {
+        document.getElementById("myForm").submit();
+    }
+</script>
+</body>
+</html>

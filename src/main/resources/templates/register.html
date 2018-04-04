@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Blopto Login</title>
+        <title>Blopto Registration</title>
         <!-- CSS -->
         <link type="text/css" rel="stylesheet" href="/style.css" />
         <!-- Meta tags -->
@@ -16,13 +16,19 @@
         <script src="/main.js"></script>
     </head>
     <body id="loginbody">
-        <form id="loginform" action="/login" method="post">
-            <h1>blopto</h1>
+        <form id="loginform" action="/register" method="post">
+            <h1>blopto registration</h1>
+            <label class="hidden" for="firstName">Name</label>
+            <input type="text" placeholder="Name" name="firstName" th:required="required" />
             <label class="hidden" for="username">Username</label>
             <input type="text" placeholder="Username" name="username" th:required="required" />
+            <label class="hidden" for="email">Email address</label>
+            <input type="text" placeholder="Email address" name="email" th:required="required" />
             <label class="hidden" for="password">Password</label>
             <input type="password" placeholder="Password" name="password" th:required="required"/>
-            <input type="submit" value="Login"/><!--<a id="idcard" class="alternate" href="#"></a>--><a id="smartid" class="alternate" href="#"></a><a id="facebook" class="alternate" href="/connect/facebook"></a>
+            <label class="hidden" for="password2">Password again</label>
+            <input type="password" placeholder="Password again" name="password2" th:required="required"/>
+            <input type="submit" value="Register"/><!--<a id="idcard" class="alternate" href="#"></a>--><a id="smartid" class="alternate" href="#"></a><a id="facebook" class="alternate" href="/connect/facebook"></a>
         </form>
     </body>
 </html>

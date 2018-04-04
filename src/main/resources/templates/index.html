@@ -5,13 +5,13 @@
         <!-- CSS -->
         <link type="text/css" rel="stylesheet" href="/style.css" />
         <!-- Meta tags -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Microblogging with a focus on privacy">
-        <meta name="keywords" content="Blopto,microblogging,privacy,encryption">
-        <meta name="author" content="Andri Soone,Paul Liibert,Kermo Laurits">
-        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="Microblogging with a focus on privacy"/>
+        <meta name="keywords" content="Blopto,microblogging,privacy,encryption"/>
+        <meta name="author" content="Andri Soone,Paul Liibert,Kermo Laurits"/>
+        <meta charset="UTF-8"/>
         <!-- FontAwesome CDN -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
         <!-- JavaScript -->
         <script src="/main.js"></script>
     </head>
@@ -27,7 +27,7 @@
                 <a href="#"><i class="fa fa-search"></i>Search</a>
                 <a href="#"><i class="fa fa-envelope"></i>Messages (0)</a>
                 <a href="#"><i class="fa fa-cog"></i>Settings</a>
-                <a href="#"><i class="fa fa-sign-out"></i>Log out</a>
+                <a href="/logout"><i class="fa fa-sign-out"></i>Log out</a>
             </div>
         </aside>
         <main>
@@ -37,15 +37,17 @@
                     <h2 class="hidden">Post a new thing here</h2>
                     <form id="postform" action="/api/submitpost" method="post">
                         <label class="hidden" for="postbox">Post things here</label>
-                        <textarea id="postbox" name="post" maxlength=200 placeholder="Write a message!" title="message box"></textarea>
-                        <input id="postbutton" type="submit" value="Post" title="post button">
+                        <textarea id="postbox" name="post" maxlength="200" placeholder="Write a message!" title="message box"></textarea>
+                        <input id="postbutton" type="submit" value="Post" title="post button"/>
                     </form>
                 </section>
                 <section id="posts">
                     <h2 class="hidden">Here are the already posted things</h2>
                     <article class="post" th:each="post : ${posts}">
                         <h3 class="hidden">This is a post</h3>
-                        <img class="avatar" src="/avatar.svg" width="40" height="40" alt="default avatar"><span class="username">Username</span><span class="handle">@username</span><time class="time" th:text="${post.getDate()}"></time>
+                        <img class="avatar" src="/avatar.svg" width="40" height="40" alt="default avatar"/>
+                        <span class="username">Username</span><span class="handle">@username</span>
+                        <time class="time" th:text="${post.getDate()}"></time>
                         <div class="text" th:text="${post.getPost()}"></div>
                     </article>
                 </section>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Blopto Login</title>
+        <title>blopto</title>
         <!-- CSS -->
         <link type="text/css" rel="stylesheet" href="/style.css" />
         <!-- Meta tags -->
@@ -15,14 +15,11 @@
         <!-- JavaScript -->
         <script src="/main.js"></script>
     </head>
-    <body id="loginbody">
-        <form id="loginform" action="/login" method="post">
+    <body id="landingbody">
+        <section>
             <h1>blopto</h1>
-            <label class="hidden" for="username">Username</label>
-            <input type="text" placeholder="Username" name="username" th:required="required" />
-            <label class="hidden" for="password">Password</label>
-            <input type="password" placeholder="Password" name="password" th:required="required"/>
-            <input type="submit" value="Login"/><!--<a id="idcard" class="alternate" href="#"></a>--><a id="smartid" class="alternate" href="#"></a><a id="facebook" class="alternate" href="/connect/facebook"></a>
-        </form>
+            <h2>The privacy-oriented microblogging platform</h2>
+            <a href="/login">Login</a><a href="/register">Register</a>
+        </section>
     </body>
 </html>
