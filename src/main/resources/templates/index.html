@@ -15,7 +15,7 @@
         <!-- JavaScript -->
         <script src="/main.js"></script>
     </head>
-    <body>
+    <body id="mainbody">
         <nav>
             <a id="menubutton"><em id="menuburger" class="fa fa-bars"></em><i id="menuarrow" class="fa fa-arrow-left"></i></a>
         </nav>
@@ -24,10 +24,13 @@
             <div id="sideusername" th:text="${username}"></div>
             <div id="sidehandle" th:text="'@' + ${handle}">hmm</div>
             <div id="sidelinks">
-                <a href="#"><i class="fa fa-search"></i>Search</a>
-                <a href="#"><i class="fa fa-envelope"></i>Messages (0)</a>
-                <a href="#"><i class="fa fa-cog"></i>Settings</a>
-                <a href="/logout"><i class="fa fa-sign-out"></i>Log out</a>
+                <a href="#"><i class="fa fa-search"></i><span th:text="#{index.search}"></span></a>
+                <a href="#"><i class="fa fa-envelope"></i><span th:text="#{index.messages}"></span></a>
+                <a href="#"><i class="fa fa-cog"></i><span th:text="#{index.settings}"></span></a>
+                <a href="/logout"><i class="fa fa-sign-out"></i><span th:text="#{index.logout}"></span></a>
+            </div>
+            <div id="bottomlinks">
+                <a href="?lang=et">eesti keel</a><span class="separator">|</span><a href="?lang=en">english</a>
             </div>
         </aside>
         <main>
@@ -37,9 +40,9 @@
                     <h2 class="hidden">Post a new thing here</h2>
                     <form id="postform" action="/api/submitpost" method="post">
                         <label class="hidden" for="postbox">Post things here</label>
-                        <textarea id="postbox" name="post" maxlength="200" placeholder="Write a message!" title="message box"></textarea>
-                        <input id="postbutton" type="submit" value="Post" title="post button"/>
-                        <div class="tooltip"><i class="fa fa-question-circle"></i><span class="tooltiptext">This button posts the text that you just wrote</span></div>
+                        <textarea id="postbox" name="post" maxlength="200" th:placeholder="#{index.placeholder}" title="message box"></textarea>
+                        <input id="postbutton" type="submit" th:value="#{index.post}" title="post button"/>
+                        <div class="tooltip"><i class="fa fa-question-circle"></i><span class="tooltiptext" th:text="#{index.help}">This button posts the text that you just wrote</span></div>
                     </form>
                 </section>
                 <section id="posts">

@@ -83,11 +83,26 @@ aside #sidehandle {
 #sidelinks a .fa {
     margin-right: 0.5em;
 }
+aside #bottomlinks {
+    text-align: center;
+    margin: 0.5em;
+    color: #7E91FE;
+}
+aside #bottomlinks a {
+    color: #7E91FE;
+    text-decoration: none;
+}
+aside #bottomlinks a:hover {
+    opacity: 0.7;
+}
+aside .separator {
+    margin: 0 0.5em;
+}
 
 
 
 /* MAIN */
-main {
+#mainbody main {
     background-color: #F5F5F5;
 }
 #main {
@@ -212,9 +227,16 @@ main {
     border-radius: 4px;
     margin-right: 8px;
     float: right;
+    border: 0;
+    box-sizing: border-box;
+}
+button.alternate {
+    width: 2.65em;
+    height: 2.65em;
 }
 .alternate:hover {
     opacity: 0.8;
+    cursor: pointer;
 }
 .alternate:focus {
     opacity: 0.8;
@@ -239,9 +261,12 @@ main {
     min-height: 100%;
     display: grid;
 }
-#landingbody section {
+#landingbody main {
     margin: auto;
     padding: 1em;
+}
+#landingbody #bottomlinks {
+    margin-top: 1em;
 }
 #landingbody h1 {
     font-size: 3em;
@@ -254,6 +279,14 @@ main {
 #landingbody a {
     color: white;
     text-decoration: none;
+}
+#landingbody a:hover {
+    opacity: 0.8;
+}
+#landingbody .separator {
+    margin: 0 0.5em;
+}
+#landingbody .button {
     border: 1px solid white;
     border-radius: 0.5em;
     padding: 0.8em 1.6em;
@@ -262,7 +295,7 @@ main {
     margin-right: 0.5em;
     transition: background-color 0.1s ease, color 0.1s ease;
 }
-#landingbody a:hover {
+#landingbody .button:hover {
     background-color: white;
     color: #3F51B5;
 }

@@ -17,18 +17,22 @@
     </head>
     <body id="loginbody">
         <form id="loginform" action="/register" method="post">
-            <title th:text="#{registration}"></title>
+            <h1 th:text="#{registration}"></h1>
             <label class="hidden" for="firstName"></label>
-            <input type="text" th:placeholder="#{name}" name="firstName" th:required="required" />
+            <input type="text" th:placeholder="#{name}" name="firstName" />
             <label class="hidden" for="username"></label>
-            <input type="text" th:placeholder="#{username}" name="username" th:required="required" />
+            <input type="text" th:placeholder="#{username}" name="username" />
             <label class="hidden" for="email">Email address</label>
-            <input type="text" th:placeholder="#{email}" name="email" th:required="required" />
+            <input type="text" th:placeholder="#{email}" name="email" />
             <label class="hidden" for="password">Password</label>
-            <input type="password" th:placeholder="#{password}" name="password" th:required="required"/>
+            <input type="password" th:placeholder="#{password}" name="password" />
             <label class="hidden" for="password2">Password again</label>
-            <input type="password" th:placeholder="#{password2}" name="password2" th:required="required"/>
-            <input type="submit" th:value="#{register}"/><!--<a id="idcard" class="alternate" href="#"></a>--><a id="smartid" class="alternate" href="#"></a><a id="facebook" class="alternate" href="/connect/facebook"></a>
+            <input type="password" th:placeholder="#{password2}" name="password2" />
+            <input type="submit" th:value="#{register}"/>
+            <!--<a id="idcard" class="alternate" href="#"></a>-->
+            <a id="smartid" class="alternate" href="#"></a>
+            <!--<a id="facebook" class="alternate" href="/connect/facebook"></a>-->
+            <button id="facebook" class="alternate" type="submit" formaction="/connect/facebook"></button>
             <a href="/" th:text="#{home}"></a><a href="/login" th:text="#{login}"></a>
         </form>
     </body>

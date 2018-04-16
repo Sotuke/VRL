@@ -58,7 +58,7 @@ public class RegisterController {
                 email.setText("Welcome, " + user.getUsername() + "!\nThis is a small notification that " +
                         "you have been added to ");
 
-                mailSender.send(email);
+                //mailSender.send(email);
 
             } catch (Exception ex) {
                 ex.printStackTrace();

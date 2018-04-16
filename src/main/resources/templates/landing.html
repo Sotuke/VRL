@@ -16,10 +16,15 @@
         <script src="/main.js"></script>
     </head>
     <body id="landingbody">
-        <section>
+        <main>
             <h1>blopto</h1>
             <h2 th:text="#{greeting}"></h2>
-            <a href="/login" th:text="#{login}"></a><a href="/register" th:text="#{register}"></a>
-        </section>
+            <section id="loginbuttons">
+                <a class="button" href="/login" th:text="#{login}"></a><a class="button" href="/register" th:text="#{register}"></a>
+            </section>
+            <section id="bottomlinks">
+                <a href="/about" th:text="#{about}">about</a><span class="separator">|</span><a href="/?lang=et">eesti keel</a><span class="separator">|</span><a href="/?lang=en">english</a>
+            </section>
+        </main>
     </body>
 </html>
