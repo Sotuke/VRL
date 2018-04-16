@@ -1,4 +1,4 @@
-package com.blopto.web.security;
+package com.blopto.web.config;
 
 import com.blopto.web.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .formLogin().loginPage("/login").defaultSuccessUrl("/user").permitAll()
         .and()
         .authorizeRequests().antMatchers("/register","/connect/facebook","/login/facebook","/landing","login","/privacypolicy").permitAll()
-        .anyRequest().permitAll();
+        .anyRequest().permitAll()
+        .and()
+        .logout().clearAuthentication(true);
 
         http.cors().and().csrf().disable();
     }
