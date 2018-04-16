@@ -4,6 +4,7 @@ import com.blopto.web.bean.User;
 import com.blopto.web.bean.dto.RegistrationDTO;
 import com.blopto.web.security.facebook.FacebookProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,8 @@ public class LoginController {
         return facebookProvider.getFacebookUserData(model, new User());
     }
     @GetMapping(value="/login")
-    public String login(Model model) {
+    public String login(Model model,Authentication authentication) {
+        if(authentication != null) return "redirect:/user";
         return "login";
     }
 }

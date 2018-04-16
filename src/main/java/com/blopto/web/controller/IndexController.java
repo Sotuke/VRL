@@ -1,12 +1,15 @@
 package com.blopto.web.controller;
 
+import com.blopto.web.bean.User;
 import com.blopto.web.service.PostService;
 import com.blopto.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collections;
@@ -23,7 +26,12 @@ public class IndexController {
         this.postService = postService;
         this.userService = userService;
     }
-
+    @ModelAttribute("loggedInUser")
+    public void secure(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByEmail(auth.getName());
+        model.addAttribute("loggedInUser", user);
+    }
     @GetMapping("/user")
     public String index(
             @RequestParam(value="username", required=false, defaultValue="Username") String username,
@@ -31,8 +39,7 @@ public class IndexController {
             Model model, Authentication authentication
     ) {
 
-        //List posts = postService.findByUserId(userService.getUser(username).getId());
-        List posts = postService.getAllPost();
+        List posts = postService.findByUserId(userService.findByEmail(authentication.getName()).getId());
         Collections.reverse(posts);
         model.addAttribute("posts", posts);
         model.addAttribute("username", authentication.getName() );
@@ -41,7 +48,8 @@ public class IndexController {
     }
 
     @GetMapping("/")
-    public String landing() {
+    public String landing(Authentication authentication) {
+        if (authentication != null) return "redirect:/user";
         return "landing";
     }
 
