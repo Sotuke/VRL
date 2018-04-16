@@ -18,12 +18,15 @@
     <body id="loginbody">
         <form id="loginform" action="/login" method="post">
             <h1>blopto</h1>
-            <label class="hidden" for="username">Username</label>
-            <input type="text" placeholder="Username" name="username" th:required="required" />
-            <label class="hidden" for="password">Password</label>
-            <input type="password" placeholder="Password" name="password" th:required="required"/>
-            <input type="submit" value="Login"/><!--<a id="idcard" class="alternate" href="#"></a>--><a id="smartid" class="alternate" href="/login/smart"></a><a id="facebook" class="alternate" href="/connect/facebook"></a>
-            <a href="/">Home</a><a href="/register">Register</a>
+            <label class="hidden" for="username"></label>
+            <input type="text" th:placeholder="#{username}" name="username" th:required="required" />
+            <label class="hidden" for="password" th:text="#{password}"></label>
+            <input type="password" th:placeholder="#{password}" name="password" th:required="required"/>
+            <input type="submit" th:value="#{login}"/>
+            <!--<a id="idcard" class="alternate" href="#"></a>-->
+            <a id="smartid" class="alternate" href="/login/smart"></a>
+            <a id="facebook" class="alternate" href="/connect/facebook"></a>
+            <a href="/" th:text="#{home}"></a><a href="/register" th:text="#{register}"></a>
         </form>
         <form action="/connect/facebook" method="POST" style="display: inline">
             <input type="hidden" name="scope" value="public_profile,email" />

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>blopto</title>
         <!-- CSS -->
@@ -18,8 +18,8 @@
     <body id="landingbody">
         <section>
             <h1>blopto</h1>
-            <h2>The privacy-oriented microblogging platform</h2>
-            <a href="/login">Login</a><a href="/register">Register</a>
+            <h2 th:text="#{greeting}"></h2>
+            <a href="/login" th:text="#{login}"></a><a href="/register" th:text="#{register}"></a>
         </section>
     </body>
 </html>

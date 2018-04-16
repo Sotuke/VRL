@@ -19,9 +19,9 @@
 <form id="loginform" action="/api/smart" method="post">
     <h1>blopto</h1>
     <label class="hidden" for="identityNumber">Identity number</label>
-    <input type="text" placeholder="Identity number" name="IdentityNumber" th:required="required" />
-    <input type="submit" value="Login"/>
-    <a href="/">Home</a><a href="/register">Register</a>
+    <input type="text" th:placeholder="#{identityNumber}" name="IdentityNumber" th:required="required" />
+    <input type="submit" th:value="#{login}"/>
+    <a href="/" th:text="#{home}"></a><a href="/register" th:text="#{register}"></a>
 </form>
 </body>
 </html>
