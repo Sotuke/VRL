@@ -3,6 +3,7 @@ package com.blopto.web.controller;
 
 import com.blopto.web.bean.User;
 import com.blopto.web.bean.dto.RegistrationDTO;
+import com.blopto.web.security.Autologin;
 import com.blopto.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
@@ -19,7 +20,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RegisterController {
-
+    @Autowired
+    private Autologin autologin;
     @Autowired
     private UserService userService;
     @Autowired
@@ -43,6 +45,7 @@ public class RegisterController {
         user.setEmail(registrationDTO.getEmail());
         user.setIdentityNumber(registrationDTO.getIdentityNumber());
         user.setPassword(bCryptPasswordEncoder.encode(registrationDTO.getPassword()));
+        user.setProvider("REGISTER");
 
         try {
             userService.registerUser(user);
@@ -60,9 +63,11 @@ public class RegisterController {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            autologin.setSecuritycontext(user);
+            /*
             Authentication authentication = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(),
                     AuthorityUtils.createAuthorityList("USER"));
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+            SecurityContextHolder.getContext().setAuthentication(authentication);*/
             return "redirect:/user";
 
         } catch (Exception e) {

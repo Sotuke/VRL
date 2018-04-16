@@ -28,4 +28,16 @@ public class Post {
     public void setDate() {
         this.date = new Timestamp(System.currentTimeMillis());
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setPost(String post) {
+        this.post = post;
+    }
+
+    public User getUser(){
+        return user;
+    }
 }

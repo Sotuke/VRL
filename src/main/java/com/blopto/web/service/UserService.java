@@ -38,4 +38,8 @@ public class UserService {
     public User getUserData(User user) {
         return userRepository.findByEmail(user.getEmail());
     }
+
+    public User findByEmail(String name) {
+        return userRepository.findByEmail(name);
+    }
 }

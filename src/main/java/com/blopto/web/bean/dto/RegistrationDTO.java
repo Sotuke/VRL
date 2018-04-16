@@ -13,4 +13,33 @@ public class RegistrationDTO {
     private String email;
     private String password;
     private String identityNumber;
+    private String provider;
+
+    public String getProvider() {
+        return provider;
+    }
+
+    public String  getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getIdentityNumber() {
+        return identityNumber;
+    }
 }

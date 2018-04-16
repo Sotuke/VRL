@@ -14,10 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
-
-// import org.json.JSONObject; //???
-
 @Controller
 public class PostController {
     private final static String SUBSCRIPTION_PAGE = "/api/submitpost";
@@ -35,7 +31,7 @@ public class PostController {
     public @ResponseBody
     String addPost(@ModelAttribute PostDTO postDTO, Model model, Authentication authentication) {
 
-        User user = userRepository.findByUsername(authentication.getName());
+        User user = userRepository.findByEmail(authentication.getName());
 
         Post post = new Post();
         post.setUser(user);
@@ -46,7 +42,7 @@ public class PostController {
         } catch (Exception e) {
             return "{\"success\":false}";
         }
-        for (Post i : postService.getAllPost()) System.out.println(i.getDate() + " " + i.getId() + " " + i.getPost());
+        //for (Post i : postService.getAllPost()) System.out.println(i.getDate() + " " + i.getId() + " " + i.getPost());
         return "{\"success\":true}";
     }
 
