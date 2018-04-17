@@ -45,7 +45,6 @@ public class RegisterController {
 
         try {
             userService.registerUser(user);
-
             try {
                 SimpleMailMessage email = new SimpleMailMessage();
                 email.setTo(user.getEmail());

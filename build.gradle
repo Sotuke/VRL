@@ -34,6 +34,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.springframework.boot:spring-boot-starter-websocket")
+	compile("org.springframework:spring-messaging")
+	compile group: 'org.json', name: 'json', version: '20090211'
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile("org.springframework.social:spring-social-facebook")
 	compile group: "org.springframework.security.oauth", name: "spring-security-oauth2", version: "2.0.11.RELEASE"

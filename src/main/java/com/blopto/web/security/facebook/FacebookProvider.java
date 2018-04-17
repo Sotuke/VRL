@@ -39,6 +39,7 @@ public class FacebookProvider  {
         userForm.setEmail(user.getEmail());
         userForm.setFirstName(user.getFirstName());
         userForm.setLastName(user.getLastName());
+        userForm.setUsername(user.getFirstName() + user.getLastName());
         userForm.setProvider(FACEBOOK);
     }
 

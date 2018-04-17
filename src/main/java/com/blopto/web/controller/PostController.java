@@ -31,7 +31,7 @@ public class PostController {
     public @ResponseBody
     String addPost(@ModelAttribute PostDTO postDTO, Model model, Authentication authentication) {
 
-        User user = userRepository.findByEmail(authentication.getName());
+        User user = userRepository.findByUsername(authentication.getName());
 
         Post post = new Post();
         post.setUser(user);

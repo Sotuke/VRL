@@ -20,7 +20,7 @@ public class Autologin {
     public void setSecuritycontext(User userForm) {
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         grantedAuthorities.add(new SimpleGrantedAuthority("USER"));
-        Authentication authentication = new UsernamePasswordAuthenticationToken(userForm.getEmail(), userForm.getPassword(), grantedAuthorities);
+        Authentication authentication = new UsernamePasswordAuthenticationToken(userForm.getUsername(), userForm.getPassword(), grantedAuthorities);
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 }

@@ -34,7 +34,6 @@ public class BaseProvider {
         else if (userRepository.findByEmail(userBean.getEmail()) != null) {
             return;
         }
-        System.out.println("siin?");
         userRepository.save(userBean);
 
     }

@@ -17,7 +17,7 @@ public class UpdateController {
     private final UserService userService;
 
     @Autowired
-    UpdateController(PostService postService, UserService userService) {
+    UpdateController(UserService userService) {
         this.userService = userService;
     }
 
@@ -26,5 +26,4 @@ public class UpdateController {
         long a = userService.countById();
         return "{\"number\":" + a +"}";
     }
-
 }
