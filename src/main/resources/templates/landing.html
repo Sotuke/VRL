@@ -10,6 +10,8 @@
         <meta name="keywords" content="Blopto,microblogging,privacy,encryption"/>
         <meta name="author" content="Andri Soone,Paul Liibert,Kermo Laurits"/>
         <meta charset="UTF-8"/>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="favicon.ico"/>
         <!-- FontAwesome CDN -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
         <!-- JavaScript -->
@@ -23,7 +25,7 @@
             <h1>blopto</h1>
             <h2 th:text="#{greeting}"></h2>
             <section id="loginbuttons">
-                <p>Registered users - <span id="p1" th:text="${count}"></span></p>
+                <p><span th:text="#{registered_users}"></span>: <span id="p1" th:text="${count}"></span></p>
                 <a class="button" href="/login" th:text="#{login}"></a><a class="button" href="/register" th:text="#{register}"></a>
             </section>
             <section id="bottomlinks">

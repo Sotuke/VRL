@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>blopto</title>
-    <!-- CSS -->
-    <link type="text/css" rel="stylesheet" href="/style.css" />
-    <!-- Meta tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Microblogging with a focus on privacy"/>
-    <meta name="keywords" content="Blopto,microblogging,privacy,encryption"/>
-    <meta name="author" content="Andri Soone,Paul Liibert,Kermo Laurits"/>
-    <meta charset="UTF-8"/>
-    <!-- FontAwesome CDN -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
-    <!-- JavaScript -->
-    <script src="/main.js"></script>
-</head>
-<body id="aboutbody">
-
-<div class="container">
-    <main>
-        <h1>blopto</h1>
-        <div style="text-align:center">
-            <h2>About us</h2>
-        </div>
-        <div class="row">
-            <div class="column">
-                <div id="map" style="width:50%;height:500px"></div>
+    <head>
+        <title>blopto</title>
+        <!-- CSS -->
+        <link type="text/css" rel="stylesheet" href="/style.css" />
+        <!-- Meta tags -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="Microblogging with a focus on privacy"/>
+        <meta name="keywords" content="Blopto,microblogging,privacy,encryption"/>
+        <meta name="author" content="Andri Soone,Paul Liibert,Kermo Laurits"/>
+        <meta charset="UTF-8"/>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <!-- FontAwesome CDN -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
+        <!-- JavaScript -->
+        <script src="/main.js"></script>
+    </head>
+    <body id="aboutbody">
+        <main>
+            <h1>about blopto</h1>
+            <p th:text="#{about.intro}"></p>
+            <p><span th:text="#{about.github}"></span>: <a href="https://github.com/Sotuke/VRL">https://github.com/Sotuke/VRL</a></p>
+            <p>Number of projected users: <strong>7.6 billion</strong></p>
+            <p>Number of lined up investors: <strong>at least 2</strong></p>
+            <p>Number of Lamborghinis the developers will buy: <strong>like 2</strong></p>
+            <div class="row">
+                <div class="column">
+                    <div id="map"></div>
+                </div>
             </div>
-        </div>
-    </main>
-</div>
+            <section id="bottomlinks">
+                <a href="/" th:text="#{homesmall}">home</a><span class="separator">|</span><a href="/?lang=et">eesti keel</a><span class="separator">|</span><a href="/?lang=en">english</a>
+            </section>
+        </main>
+        <script>
+        function initMap() {
+          var myLatLng = {lat: 58.37824850000001, lng: 26.71467329999996};
 
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: myLatLng
+          });
 
-<script>
-function initMap() {
-  var myLatLng = {lat: 58.37824850000001, lng: 26.71467329999996};
-
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 16,
-    center: myLatLng
-  });
-
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });
-}
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyXfQCjFALzTk5NEGxza3olD9xgWC03zE&amp;callback=initMap"></script>
-
-</body>
+          var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
+          });
+        }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyXfQCjFALzTk5NEGxza3olD9xgWC03zE&amp;callback=initMap"></script>
+    </body>
 </html>
