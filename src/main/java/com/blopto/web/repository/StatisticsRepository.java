@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface StatisticsRepository extends JpaRepository<Statistics, Long> {
     @Query("select s from Statistics s GROUP BY s order by count(s) desc")
-    Statistics findMostUsedBrowser(Pageable pageable);
+    List<Statistics> findMostUsedBrowser(Pageable pageable);
 
 }

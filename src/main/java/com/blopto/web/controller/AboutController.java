@@ -23,9 +23,8 @@ public class AboutController {
     @GetMapping("/about")
     public String getMap(Model model) {
         int queryLimit = 1;
-        Statistics e = repository.findMostUsedBrowser(new PageRequest(0, queryLimit));
-        if (e != null) {
-            model.addAttribute("browser", e);
+        List<Statistics> e = repository.findMostUsedBrowser(new PageRequest(0, queryLimit));
+        if (e.size() != 0) {
         }
         return "about";
     }
