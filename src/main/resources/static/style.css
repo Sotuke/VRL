@@ -83,6 +83,9 @@ aside #sidehandle {
 #sidelinks a .fa {
     margin-right: 0.5em;
 }
+#sidelinks a.searchresult {
+    padding: 10px 20px;
+}
 aside #bottomlinks {
     text-align: center;
     margin: 0.5em;
