@@ -43,7 +43,8 @@ public class PostController {
             return "{\"success\":false}";
         }
         //for (Post i : postService.getAllPost()) System.out.println(i.getDate() + " " + i.getId() + " " + i.getPost());
-        return "{\"success\":\"true\",\"user\":" + user.getEmail() + "}";
+        // Selle peaks tegelt mingi REST objektina väljastama :S
+        return "{\"success\":\"true\", \"user\":\"" + user.getUsername() + "\", \"name\":\"" + user.getFirstName() + "\", \"post\":\"" + post.getPost() + "\"}";
     }
 
 

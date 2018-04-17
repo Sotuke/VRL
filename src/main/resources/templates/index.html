@@ -16,6 +16,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
         <!-- JavaScript -->
         <script src="/main.js"></script>
+        <script src="/search.js"></script>
     </head>
     <body id="mainbody">
         <nav>
@@ -26,7 +27,7 @@
             <div id="sideusername" th:text="${username}"></div>
             <div id="sidehandle" th:text="'@' + ${handle}">hmm</div>
             <div id="sidelinks">
-                <a href="#"><i class="fa fa-search"></i><span th:text="#{index.search}"></span></a>
+                <a id="searchbutton" href="#"><i class="fa fa-search"></i><span th:text="#{index.search}"></span></a>
                 <a href="#"><i class="fa fa-envelope"></i><span th:text="#{index.messages}"></span></a>
                 <a href="#"><i class="fa fa-cog"></i><span th:text="#{index.settings}"></span></a>
                 <a href="/logout"><i class="fa fa-sign-out"></i><span th:text="#{index.logout}"></span></a>
