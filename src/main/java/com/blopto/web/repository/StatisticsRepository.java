@@ -9,7 +9,10 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface StatisticsRepository extends JpaRepository<Statistics, Long> {
-    @Query("select s from Statistics s GROUP BY s order by count(s) desc")
+    @Query("select s from Statistics s GROUP BY s order by count(s.browser) desc")
     List<Statistics> findMostUsedBrowser(Pageable pageable);
-
+    @Query("select s from Statistics s GROUP BY s order by count(s.screenSize) desc")
+    List<Statistics> findMostUsedScreensize(Pageable pageable);
+    @Query("select s from Statistics s GROUP BY s order by count(s.os) desc")
+    List<Statistics> findMostUsedOs(Pageable pageable);
 }
