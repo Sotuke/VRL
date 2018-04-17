@@ -22,9 +22,9 @@
             <h1>about blopto</h1>
             <p th:text="#{about.intro}"></p>
             <p><span th:text="#{about.github}"></span>: <a href="https://github.com/Sotuke/VRL">https://github.com/Sotuke/VRL</a></p>
-            <p>Number of projected users: <strong>7.6 billion</strong></p>
-            <p>Number of lined up investors: <strong>at least 2</strong></p>
-            <p>Number of Lamborghinis the developers will buy: <strong>like 2</strong></p>
+            <p>Most used browser: <strong th:text="${browser}"></strong></p>
+            <p>Most used screen-size: <strong th:text="${size}"></strong></p>
+            <p>Most used os: <strong th:text="${os}"></strong></p>
             <div class="row">
                 <div class="column">
                     <div id="map"></div>
