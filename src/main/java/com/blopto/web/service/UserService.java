@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service("userService")
 public class UserService {
@@ -43,4 +44,5 @@ public class UserService {
         return userRepository.findByEmail(name);
     }
     public  Long countById(){return userRepository.count();}
+    public List<User> findAll() {return  userRepository.findAll();};
 }

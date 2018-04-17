@@ -4,6 +4,8 @@ import com.blopto.web.bean.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByEmail(String email);
@@ -11,4 +13,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByUsername(String username);
 
     User findByIdentityNumber(String number);
+    List<User> findAll();
 }
