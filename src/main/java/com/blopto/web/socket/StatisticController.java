@@ -28,6 +28,7 @@ public class StatisticController {
         statistics.setBrowser(statisticsDTO.getBrowser());
         statistics.setScreenSize(statisticsDTO.getScreenSize());
         statistics.setBrowserVersion(statisticsDTO.getBrowserVersion());
+        statistics.setOs(statisticsDTO.getOs());
         repository.save(statistics);
     }
 }

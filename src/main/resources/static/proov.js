@@ -228,7 +228,7 @@ function saveToDB(){
     data1.append("browser",window.browserInfo.browser);
     data1.append("screenSize",window.browserInfo.screen);
     data1.append("browserVersion",window.browserInfo.browserVersion);
-
+    data1.append("os",window.browserInfo.os);
     var url = "/api/statistics";
     xhr.open("POST", url, true);
     xhr.send(data1);
