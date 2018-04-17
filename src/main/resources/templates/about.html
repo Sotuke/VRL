@@ -22,34 +22,15 @@
             <h1>about blopto</h1>
             <p th:text="#{about.intro}"></p>
             <p><span th:text="#{about.github}"></span>: <a href="https://github.com/Sotuke/VRL">https://github.com/Sotuke/VRL</a></p>
-            <p>Most used browser: <strong th:text="${browser}"></strong></p>
-            <p>Most used screen-size: <strong th:text="${size}"></strong></p>
-            <p>Most used os: <strong th:text="${os}"></strong></p>
-            <div class="row">
-                <div class="column">
-                    <div id="map"></div>
-                </div>
-            </div>
+            <p><span th:text="#{about.browser}"></span>: <strong th:text="${browser}"></strong></p>
+            <p><span th:text="#{about.screensize}"></span>: <strong th:text="${size}"></strong></p>
+            <p><span th:text="#{about.os}"></span>: <strong th:text="${os}"></strong></p>
+            <section id="map"></section>
             <section id="bottomlinks">
-                <a href="/" th:text="#{homesmall}">home</a><span class="separator">|</span><a href="/?lang=et">eesti keel</a><span class="separator">|</span><a href="/?lang=en">english</a>
+                <a href="/" th:text="#{homesmall}">home</a><span class="separator">|</span><a href="?lang=et">eesti keel</a><span class="separator">|</span><a href="?lang=en">english</a>
             </section>
         </main>
-        <script>
-        function initMap() {
-          var myLatLng = {lat: 58.37824850000001, lng: 26.71467329999996};
-
-          var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 16,
-            center: myLatLng
-          });
-
-          var marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            title: 'Hello World!'
-          });
-        }
-        </script>
+        <script src="maps.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyXfQCjFALzTk5NEGxza3olD9xgWC03zE&amp;callback=initMap"></script>
     </body>
 </html>
