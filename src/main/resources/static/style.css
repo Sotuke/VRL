@@ -275,7 +275,7 @@ button.alternate {
     font-size: 3em;
     margin: 0;
 }
-#landingbody h2, #aboutbody h2 {
+#landingbody h2, #aboutbody h1 {
     font-weight: 300;
     margin: 0 0 1em;
 }
@@ -416,4 +416,26 @@ a:focus {
     #loginform {
         width: 90%;
     }
+}
+
+
+/* ABOUT */
+#aboutbody {
+    background-color: #3F51B5;
+    color: white;
+    margin: 0;
+    min-height: 100%;
+    display: grid;
+}
+#aboutbody main {
+    margin: auto;
+    padding: 1em;
+}
+#aboutbody h1 {
+    font-size: 3em;
+    margin: 0;
+}
+#aboutbody h2 {
+    font-weight: 300;
+    margin: 0 0 1em;
 }

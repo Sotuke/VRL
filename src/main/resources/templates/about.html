@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title th:text="#{about.title}"></title>
+        <title>blopto</title>
         <!-- CSS -->
         <link type="text/css" rel="stylesheet" href="/style.css" />
         <!-- Meta tags -->
@@ -14,21 +14,42 @@
         <link rel="shortcut icon" href="favicon.ico"/>
         <!-- FontAwesome CDN -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
+        <!-- JavaScript -->
+        <script src="/main.js"></script>
     </head>
     <body id="aboutbody">
         <main>
-            <h1 th:text="#{about.title}"></h1>
+            <h1>about blopto</h1>
             <p th:text="#{about.intro}"></p>
             <p><span th:text="#{about.github}"></span>: <a href="https://github.com/Sotuke/VRL">https://github.com/Sotuke/VRL</a></p>
-            <p>Number of projected users: <strong>7.6 billion</strong></p>
-            <p>Number of lined up investors: <strong>at least 2</strong></p>
-            <p>Number of Lamborghinis the developers will buy: <strong>like 2</strong></p>
-            <section id="map"></section>
+            <p>Most used browser: <strong th:text="${browser}"></strong></p>
+            <p>Most used screen-size: <strong th:text="${size}"></strong></p>
+            <p>Most used os: <strong th:text="${os}"></strong></p>
+            <div class="row">
+                <div class="column">
+                    <div id="map"></div>
+                </div>
+            </div>
             <section id="bottomlinks">
-                <a href="/" th:text="#{homesmall}">home</a><span class="separator">|</span><a href="?lang=et">eesti keel</a><span class="separator">|</span><a href="?lang=en">english</a>
+                <a href="/" th:text="#{homesmall}">home</a><span class="separator">|</span><a href="/?lang=et">eesti keel</a><span class="separator">|</span><a href="/?lang=en">english</a>
             </section>
         </main>
-        <script src="maps.js"></script>
+        <script>
+        function initMap() {
+          var myLatLng = {lat: 58.37824850000001, lng: 26.71467329999996};
+
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: myLatLng
+          });
+
+          var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
+          });
+        }
+        </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyXfQCjFALzTk5NEGxza3olD9xgWC03zE&amp;callback=initMap"></script>
     </body>
 </html>

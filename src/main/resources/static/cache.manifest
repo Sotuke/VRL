@@ -3,8 +3,16 @@ CACHE MANIFEST
 # v1.0.1
 
 CACHE:
-/
+/login
+/register
+smartid.png
+smartid.svg
 main.js
+favicon.ico
+fb.svg
+id.svg
 count.js
 proov.js
+avatar.svg
 style.css
+

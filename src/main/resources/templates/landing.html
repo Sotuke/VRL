@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" manifest="cache.manifest">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>blopto</title>
         <!-- CSS -->
@@ -10,15 +10,15 @@
         <meta name="keywords" content="Blopto,microblogging,privacy,encryption"/>
         <meta name="author" content="Andri Soone,Paul Liibert,Kermo Laurits"/>
         <meta charset="UTF-8"/>
-        <!-- Langs -->
-        <link rel="alternate" hreflang="et" href="?lang=et" />
-        <link rel="alternate" hreflang="en" href="?lang=en" />
         <!-- Favicon -->
         <link rel="shortcut icon" href="favicon.ico"/>
         <!-- FontAwesome CDN -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
         <!-- JavaScript -->
+        <script src="/main.js"></script>
+        <!-- JavaScript -->
         <script src="/count.js"></script>
+        <!-- JavaScript -->
         <script src="/proov.js"></script>
     </head>
     <body id="landingbody">
@@ -30,7 +30,7 @@
                 <a class="button" href="/login" th:text="#{login}"></a><a class="button" href="/register" th:text="#{register}"></a>
             </section>
             <section id="bottomlinks">
-                <a href="/about" th:text="#{about}">about</a><span class="separator">|</span><a href="?lang=et">eesti keel</a><span class="separator">|</span><a href="?lang=en">english</a>
+                <a href="/about" th:text="#{about}">about</a><span class="separator">|</span><a href="/?lang=et">eesti keel</a><span class="separator">|</span><a href="/?lang=en">english</a>
             </section>
         </main>
     </body>
