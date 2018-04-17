@@ -33,7 +33,6 @@ window.onload = function() {
         
     }
 
-
     postButton.onclick = function() {
         var text = postBox.value.trim();
         var date = new Date();
@@ -43,6 +42,7 @@ window.onload = function() {
             data.append("post",text);
             var url = "/api/submitpost";
             xhr.open("POST", url, true);
+            var serverResponse;
             xhr.send(data);
 
             posts.innerHTML = `

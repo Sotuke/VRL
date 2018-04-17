@@ -42,4 +42,5 @@ public class UserService {
     public User findByEmail(String name) {
         return userRepository.findByEmail(name);
     }
+    public  Long countById(){return userRepository.count();}
 }

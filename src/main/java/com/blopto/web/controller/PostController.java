@@ -43,7 +43,7 @@ public class PostController {
             return "{\"success\":false}";
         }
         //for (Post i : postService.getAllPost()) System.out.println(i.getDate() + " " + i.getId() + " " + i.getPost());
-        return "{\"success\":true}";
+        return "{\"success\":\"true\",\"user\":" + user.getEmail() + "}";
     }
 
 

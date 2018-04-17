@@ -38,7 +38,7 @@ public class IndexController {
             @RequestParam(value="handle", required=false, defaultValue="username") String handle,
             Model model, Authentication authentication
     ) {
-
+        System.out.println(userService.countById());
         List posts = postService.findByUserId(userService.findByEmail(authentication.getName()).getId());
         Collections.reverse(posts);
         model.addAttribute("posts", posts);
@@ -48,8 +48,9 @@ public class IndexController {
     }
 
     @GetMapping("/")
-    public String landing(Authentication authentication) {
+    public String landing(Authentication authentication,Model model) {
         if (authentication != null) return "redirect:/user";
+        model.addAttribute("count", userService.countById());
         return "landing";
     }
 
