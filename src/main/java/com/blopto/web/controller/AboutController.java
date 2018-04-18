@@ -23,16 +23,16 @@ public class AboutController {
     @GetMapping("/about")
     public String getMap(Model model) {
         int queryLimit = 1;
-        List<Statistics> browser = repository.findMostUsedBrowser(new PageRequest(0, queryLimit));
-        List<Statistics> screen = repository.findMostUsedScreensize(new PageRequest(0, queryLimit));
-        List<Statistics> os = repository.findMostUsedOs(new PageRequest(0, queryLimit));
+        List<String> browser = repository.findMostUsedBrowser(new PageRequest(0, queryLimit));
+        List<String> screen = repository.findMostUsedScreensize(new PageRequest(0, queryLimit));
+        List<String> os = repository.findMostUsedOs(new PageRequest(0, queryLimit));
         if (browser.size() != 0) {
-            model.addAttribute("browser",browser.get(0).getBrowser());
-            System.out.println(browser.get(0).getBrowser());
-            model.addAttribute("size",screen.get(0).getScreenSize());
-            System.out.println(screen.get(0).getScreenSize());
-            model.addAttribute("os",os.get(0).getOs());
-            System.out.println(os.get(0).getOs());
+            model.addAttribute("browser",browser.get(0));
+            System.out.println(browser.get(0));
+            model.addAttribute("size",screen.get(0));
+            System.out.println(screen.get(0));
+            model.addAttribute("os",os.get(0));
+            System.out.println(os.get(0));
         }
         return "about";
     }
