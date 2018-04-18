@@ -278,7 +278,7 @@ button.alternate {
     font-size: 3em;
     margin: 0;
 }
-#landingbody h2, #aboutbody h1 {
+#landingbody h2, #aboutbody h2 {
     font-weight: 300;
     margin: 0 0 1em;
 }
@@ -367,9 +367,9 @@ button.alternate {
 .hidden {
     display: none;
 }
-p {
+/*p {
     text-align: justify;
-}
+}*/
 /* removed these because powermapper doesn't like em
 /*::-moz-focus-inner {
     border:0;
@@ -396,7 +396,7 @@ a:focus {
         padding-top: 4em;
     }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 520px) {
     #posting {
         padding: 20px;
     }
@@ -412,33 +412,14 @@ a:focus {
     textarea {
         font-size: 1em;
     }
-    button {
+    button:not(.alternate) {
         font-size: 1em;
     }
 
     #loginform {
         width: 90%;
     }
-}
-
-
-/* ABOUT */
-#aboutbody {
-    background-color: #3F51B5;
-    color: white;
-    margin: 0;
-    min-height: 100%;
-    display: grid;
-}
-#aboutbody main {
-    margin: auto;
-    padding: 1em;
-}
-#aboutbody h1 {
-    font-size: 3em;
-    margin: 0;
-}
-#aboutbody h2 {
-    font-weight: 300;
-    margin: 0 0 1em;
+    #aboutbody main {
+        width: 90%;
+    }
 }
