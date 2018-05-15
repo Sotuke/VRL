@@ -1,30 +1,16 @@
-var ip = "";
-console.log("I am in the file");
-getIP();
-function getIP(){
-    console.log("Checking ip");
-    if(ip != ""){
-        saveToDB();
-        return;
-    }
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4) {
-            if(this.status == 200){
-                ip = this.responseText.split('"')[3];
-            }else{
-                ip = "0.0.0.0";
-            }
-        }
+function checkUpdates(url) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', "/api/test");
+    xhr.onload = function() {
+        var serverResponse = JSON.parse(xhr.responseText);
+        document.getElementById("p1").innerHTML = serverResponse.number;
     };
-    xhttp.open("GET", "https://api.ipify.org?format=jsonp&callback=getIP", true);
-    xhttp.send();
-    if(ip == ""){
-        setTimeout(getIP, 1000);
-    }else{
-        saveToDB();
-    }
+    xhr.send();
 }
+
+setInterval(function() {checkUpdates('/updates')}, 10000);
+
+console.log("I am in the file");
 
 (function (window) {
     {
@@ -224,7 +210,6 @@ function saveToDB(){
     console.log("cookies: "+window.browserInfo.cookies);
     var data1 = new FormData();
     var xhr = new XMLHttpRequest();
-    data1.append("ip",ip);
     data1.append("browser",window.browserInfo.browser);
     data1.append("screenSize",window.browserInfo.screen);
     data1.append("browserVersion",window.browserInfo.browserVersion);

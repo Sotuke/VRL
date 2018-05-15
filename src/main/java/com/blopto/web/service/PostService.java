@@ -1,6 +1,7 @@
 package com.blopto.web.service;
 
 import com.blopto.web.bean.Post;
+import com.blopto.web.bean.User;
 import com.blopto.web.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,9 @@ public class PostService {
         return postRepository.findAll();
     }
 
-
+    public void removePosts(User user){
+        postRepository.removeAllByUser(user);
+    }
     public Long getCount(Long userId) {
         return postRepository.countByUserId(userId);
     }

@@ -1,5 +1,6 @@
 package com.blopto.web.service;
 
+import com.blopto.web.bean.Post;
 import com.blopto.web.bean.User;
 import com.blopto.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PostService postService;
 
     @Transactional
     public User registerUser(User newUser) {
@@ -34,6 +38,21 @@ public class UserService {
 
         return userRepository.save(newUser);
     }
+    @Transactional
+    public void removeUser(User user){
+        if (containsUser(user)){
+            postService.removePosts(user);
+            userRepository.deleteUserByEmail(user.getEmail());
+        }
+    }
+    public boolean containsUser(User user){
+        try {
+            findByEmail(user.getEmail());
+        }catch (Exception exception){
+            return false;
+        }
+        return true;
+    }
     public User getUser(String user){return userRepository.findByUsername(user);};
 
     public User getUserData(User user) {
@@ -43,6 +62,6 @@ public class UserService {
     public User findByEmail(String name) {
         return userRepository.findByEmail(name);
     }
-    public  Long countById(){return userRepository.count();}
+    public Long countById(){return userRepository.count();}
     public List<User> findAll() {return  userRepository.findAll();};
 }
