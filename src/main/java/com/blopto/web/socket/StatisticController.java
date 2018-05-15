@@ -20,7 +20,7 @@ public class StatisticController {
     StatisticController(StatisticsRepository repository) {
         this.repository = repository;
     }
-
+    //
     @RequestMapping(value = "/api/statistics",method=RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.ACCEPTED)
     public void statistics(@ModelAttribute StatisticsDTO statisticsDTO) {

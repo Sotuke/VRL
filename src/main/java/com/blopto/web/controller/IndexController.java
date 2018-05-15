@@ -38,6 +38,7 @@ public class IndexController {
             @RequestParam(value="handle", required=false, defaultValue="username") String handle,
             Model model, Authentication authentication
     ) {
+        if (authentication == null) return "mis sa nüüd!";
         System.out.println(authentication.getName());
         List posts = postService.findByUserId(userService.getUser(authentication.getName()).getId());
         Collections.reverse(posts);
