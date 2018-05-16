@@ -147,4 +147,29 @@ public class DatabaseTests {
         assertEquals("paul",user.getFirstName());
         userService.removeUser(user);
     }
+    @Test(expected = Exception.class)
+    public void sameEmailRegisterTest() {
+        User user = new User();
+        user.setEmail("test@mail.com");
+        user.setFirstName("testE1");
+        user.setLastName("testP1");
+        user.setPassword("testPa1ssword");
+        user.setIdentityNumber("3194512245");
+        user.setUsername("testUser1");
+        user.setProvider("testProvider");
+        userService.registerUser(user);
+    }
+    @Test(expected = Exception.class)
+    public void sameUsernameRegisterTest() {
+        User user = new User();
+        user.setEmail("test@mail.com1");
+        user.setFirstName("testE1");
+        user.setLastName("testP1");
+        user.setPassword("testPa1ssword");
+        user.setIdentityNumber("3194512245");
+        user.setUsername("testUser");
+        user.setProvider("testProvider");
+        userService.registerUser(user);
+    }
+
 }
